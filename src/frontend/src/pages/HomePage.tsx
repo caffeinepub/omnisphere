@@ -7,6 +7,11 @@ import { toast } from "sonner";
 import { ArticleCard } from "../components/ArticleCard";
 import { useGetAllCategories, useGetAllPosts } from "../hooks/useQueries";
 
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80";
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+
 export function HomePage() {
   const { data: posts = [] } = useGetAllPosts();
   const { data: categories = [] } = useGetAllCategories();
@@ -32,17 +37,20 @@ export function HomePage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-secondary/30 border-b border-border">
-        {/* Background pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, oklch(0.18 0.04 268) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
+      <section className="relative overflow-hidden border-b border-border">
+        {/* Hero background image */}
+        <img
+          src={HERO_IMAGE}
+          alt="Tech background"
+          crossOrigin="anonymous"
+          className="absolute inset-0 w-full h-full object-cover opacity-10 dark:opacity-[0.07]"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
           }}
         />
-        {/* Red accent blob */}
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-secondary/50" />
+        {/* Red accent blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
 

@@ -29,7 +29,8 @@ export const STATIC_POSTS: Post[] = [
     author: "Rahul Sharma",
     publishedAt: "2026-02-15",
     readingTimeMinutes: 8,
-    imageUrl: "https://picsum.photos/seed/iphone-15-pro-max-review/800/450",
+    imageUrl:
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
     excerpt:
       "iPhone 15 Pro Max ek premium flagship hai — par kya iska daam justify hota hai? Hum iske camera, performance, aur battery life ka ek honest Hinglish review lekar aaye hain.",
     tags: ["iPhone", "Apple", "Flagship", "Review"],
@@ -68,7 +69,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-10",
     readingTimeMinutes: 10,
     imageUrl:
-      "https://picsum.photos/seed/samsung-s24-ultra-vs-iphone-15-pro/800/450",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
     excerpt:
       "Android vs iOS ki ye eternal jang aaj bhi jaari hai. Samsung Galaxy S24 Ultra aur iPhone 15 Pro — dono premium flagships hain. Lekin winner kaun hai? Hum ek detailed comparison lekar aaye hain.",
     tags: ["Samsung", "iPhone", "Comparison", "Flagship"],
@@ -98,7 +99,8 @@ export const STATIC_POSTS: Post[] = [
     author: "Arjun Mehta",
     publishedAt: "2026-01-28",
     readingTimeMinutes: 6,
-    imageUrl: "https://picsum.photos/seed/oneplus-12-tips-tricks/800/450",
+    imageUrl:
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
     excerpt:
       "OnePlus 12 ek powerful phone hai, par iske saare features use karna seedha nahi hai. Yahan hain 10 hidden tips jo aapke experience ko next level par le jayenge.",
     tags: ["OnePlus", "Tips", "Tricks", "Android"],
@@ -132,7 +134,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-20",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://picsum.photos/seed/best-budget-phones-under-15000/800/450",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
     excerpt:
       "₹15,000 ke andar best smartphones 2026 mein? Haan possible hai! Ye list aapko sabse value-for-money phones batayegi jo performance, camera, aur battery life mein compromise nahi karti.",
     tags: ["Budget", "Phones", "Buying Guide", "2026"],
@@ -159,7 +161,8 @@ export const STATIC_POSTS: Post[] = [
     author: "Vikash Kumar",
     publishedAt: "2026-01-15",
     readingTimeMinutes: 9,
-    imageUrl: "https://picsum.photos/seed/rog-phone-8-vs-poco-f6-pro/800/450",
+    imageUrl:
+      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80",
     excerpt:
       "Mobile gaming ke liye best phone kaun sa hai? ASUS ROG Phone 8 aur Poco F6 Pro dono gaming ke liye bane hain — par kaun jeeta? Hum ek real-world gaming test lekar aaye hain.",
     tags: ["Gaming", "ASUS ROG", "Poco", "Comparison"],
@@ -192,7 +195,8 @@ export const STATIC_POSTS: Post[] = [
     author: "Priya Singh",
     publishedAt: "2026-01-08",
     readingTimeMinutes: 12,
-    imageUrl: "https://picsum.photos/seed/laptop-buying-guide-2026/800/450",
+    imageUrl:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
     excerpt:
       "College student ho ya professional — 2026 mein laptop kharidna confusing ho sakta hai. Is guide mein hum aapko budget, performance, aur requirements ke hisab se best laptops batayenge.",
     tags: ["Laptops", "Buying Guide", "Students", "2026"],

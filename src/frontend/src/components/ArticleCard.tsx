@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { Calendar, Clock, User } from "lucide-react";
 import { CATEGORY_COLOR_MAP, type Post } from "../data/posts";
 
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+
 interface ArticleCardProps {
   post: Post;
   variant?: "featured" | "default" | "horizontal";
@@ -26,8 +29,12 @@ export function ArticleCard({
           <img
             src={post.imageUrl}
             alt={post.title}
+            crossOrigin="anonymous"
             className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
             loading="lazy"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
+            }}
           />
           {/* subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -71,8 +78,12 @@ export function ArticleCard({
         <img
           src={post.imageUrl}
           alt={post.title}
+          crossOrigin="anonymous"
           className="w-full aspect-video object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
           loading="lazy"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <span
