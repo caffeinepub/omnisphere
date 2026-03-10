@@ -14,6 +14,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { HomePage } from "./pages/HomePage";
+import { WishlistPage } from "./pages/WishlistPage";
 
 // Root Layout
 function RootLayout() {
@@ -57,11 +58,18 @@ const aboutRoute = createRoute({
   component: AboutPage,
 });
 
+const wishlistRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/wishlist",
+  component: WishlistPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   articleRoute,
   categoryRoute,
   aboutRoute,
+  wishlistRoute,
 ]);
 
 const hashHistory = createHashHistory();
