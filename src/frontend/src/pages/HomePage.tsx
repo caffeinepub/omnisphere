@@ -5,6 +5,8 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { ArticleCard } from "../components/ArticleCard";
+import { DealOfTheDay } from "../components/DealOfTheDay";
+import { EmiCalculator } from "../components/EmiCalculator";
 import { useGetAllCategories, useGetAllPosts } from "../hooks/useQueries";
 
 const HERO_IMAGE =
@@ -133,6 +135,9 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Deal of the Day */}
+      <DealOfTheDay />
+
       {/* Categories */}
       <section className="bg-muted/30 border-y border-border py-14">
         <div className="container mx-auto px-4">
@@ -194,6 +199,9 @@ export function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* EMI Calculator */}
+      <EmiCalculator />
 
       {/* Newsletter */}
       <section className="bg-foreground text-background py-14">

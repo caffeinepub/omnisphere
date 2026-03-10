@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { PhoneQuiz } from "./components/PhoneQuiz";
 import { AboutPage } from "./pages/AboutPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
@@ -24,6 +25,7 @@ function RootLayout() {
       </div>
       <Footer />
       <Toaster position="bottom-right" />
+      <PhoneQuiz />
     </div>
   );
 }

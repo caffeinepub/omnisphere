@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { SiFacebook, SiWhatsapp, SiX } from "react-icons/si";
 import { ArticleCard } from "../components/ArticleCard";
 import { BackToTop } from "../components/BackToTop";
+import { ReviewSystem } from "../components/ReviewSystem";
 import { CATEGORY_COLOR_MAP } from "../data/posts";
 import { useGetAllPosts, useGetPostBySlug } from "../hooks/useQueries";
 
@@ -175,6 +176,9 @@ export function ArticlePage() {
             ))}
           </div>
         )}
+
+        {/* Review System */}
+        <ReviewSystem articleSlug={slug} />
 
         {/* Related Articles */}
         {relatedPosts.length > 0 && (
