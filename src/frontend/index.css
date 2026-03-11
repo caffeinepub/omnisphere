@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -213,4 +213,22 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+}
+
+/* Hindi language support */
+.lang-hi {
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+}
+
+.lang-hi body,
+.lang-hi p,
+.lang-hi span,
+.lang-hi h1,
+.lang-hi h2,
+.lang-hi h3,
+.lang-hi button,
+.lang-hi input,
+.lang-hi a {
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  font-size-adjust: 0.5;
 }

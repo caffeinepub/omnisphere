@@ -2,16 +2,18 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { Heart, Menu, Mic, Moon, Search, Sun, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "../context/LanguageContext";
 import { PHONES_DATA } from "../data/phones";
 import { useTheme } from "../hooks/useTheme";
+import { T } from "../i18n/translations";
 
-const NAV_LINKS = [
-  { label: "Home", path: "/" },
-  { label: "Reviews", path: "/category/reviews" },
-  { label: "Tips & Tricks", path: "/category/tips" },
-  { label: "Comparisons", path: "/category/comparisons" },
-  { label: "Gaming", path: "/category/gaming" },
-  { label: "About", path: "/about" },
+const NAV_PATHS = [
+  { key: "nav_home" as const, path: "/" },
+  { key: "nav_reviews" as const, path: "/category/reviews" },
+  { key: "nav_tips" as const, path: "/category/tips" },
+  { key: "nav_comparisons" as const, path: "/category/comparisons" },
+  { key: "nav_gaming" as const, path: "/category/gaming" },
+  { key: "nav_about" as const, path: "/about" },
 ];
 
 const POPULAR_SEARCHES = [
@@ -66,6 +68,8 @@ interface SearchResult {
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
+  const { lang, toggleLang } = useLanguage();
+  const t = T[lang];
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -122,7 +126,7 @@ export function Header() {
         results.push({
           type: "phone",
           label: p.name,
-          sublabel: `${p.price} • ${p.specs.ram}`,
+          sublabel: `${p.price} \u2022 ${p.specs.ram}`,
           id: p.id,
         });
       return results.slice(0, 8);
@@ -199,14 +203,14 @@ export function Header() {
     };
     recognition.onerror = () => toast.error("Voice search failed");
     recognition.start();
-    toast.info("🎤 Listening...");
+    toast.info("\ud83c\udfa4 Listening...");
   };
 
   const typeIcon = (type: SearchResult["type"]) => {
-    if (type === "phone") return "📱";
-    if (type === "category") return "📂";
-    if (type === "recent") return "🕒";
-    return "🔥";
+    if (type === "phone") return "\ud83d\udcf1";
+    if (type === "category") return "\ud83d\udcc2";
+    if (type === "recent") return "\ud83d\udd52";
+    return "\ud83d\udd25";
   };
 
   return (
@@ -249,14 +253,14 @@ export function Header() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-5 shrink-0">
-          {NAV_LINKS.map((link) => (
+          {NAV_PATHS.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
               data-ocid="header.link"
             >
-              {link.label}
+              {t[link.key]}
             </Link>
           ))}
           <Link
@@ -264,7 +268,7 @@ export function Header() {
             className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200 flex items-center gap-1"
             data-ocid="header.link"
           >
-            <Heart size={14} /> Wishlist
+            <Heart size={14} /> {t.nav_wishlist}
           </Link>
         </nav>
 
@@ -286,7 +290,7 @@ export function Header() {
               }}
               onFocus={() => setDropdownOpen(true)}
               onKeyDown={handleKeyDown}
-              placeholder="Search phones, specs..."
+              placeholder={t.search_placeholder}
               className="w-full h-9 pl-8 pr-8 text-sm bg-muted border border-border rounded-xl outline-none focus:ring-2 focus:ring-primary/30 text-foreground placeholder:text-muted-foreground"
               data-ocid="search.search_input"
             />
@@ -331,7 +335,7 @@ export function Header() {
                   </span>
                   {result.type === "recent" && (
                     <span className="text-[10px] text-muted-foreground shrink-0">
-                      Recent
+                      {t.recent_searches}
                     </span>
                   )}
                 </button>
@@ -341,6 +345,16 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-1">
+          {/* Language Toggle */}
+          <button
+            type="button"
+            onClick={toggleLang}
+            className="px-2.5 py-1 rounded-lg text-xs font-bold border border-border text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+            aria-label="Toggle language"
+            data-ocid="header.toggle"
+          >
+            {lang === "en" ? "\u0939\u093f\u0902" : "EN"}
+          </button>
           <button
             type="button"
             onClick={() => setSearchOpen(!searchOpen)}
@@ -392,7 +406,7 @@ export function Header() {
               }}
               onFocus={() => setDropdownOpen(true)}
               onKeyDown={handleKeyDown}
-              placeholder="Search phones..."
+              placeholder={t.search_placeholder}
               className="w-full h-9 pl-8 pr-8 text-sm bg-muted border border-border rounded-xl outline-none focus:ring-2 focus:ring-primary/30 text-foreground placeholder:text-muted-foreground"
               data-ocid="search.search_input"
             />
@@ -431,7 +445,7 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
+            {NAV_PATHS.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -439,7 +453,7 @@ export function Header() {
                 className="px-3 py-2.5 rounded-lg text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted transition-colors"
                 data-ocid="header.link"
               >
-                {link.label}
+                {t[link.key]}
               </Link>
             ))}
             <Link
@@ -448,7 +462,7 @@ export function Header() {
               className="px-3 py-2.5 rounded-lg text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted transition-colors flex items-center gap-2"
               data-ocid="header.link"
             >
-              <Heart size={14} /> My Wishlist
+              <Heart size={14} /> {t.nav_wishlist}
             </Link>
           </nav>
         </div>

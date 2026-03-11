@@ -24,9 +24,11 @@ import { EmiCalculator } from "../components/EmiCalculator";
 import { PhoneCard } from "../components/PhoneCard";
 import { ShareButtons } from "../components/ShareButtons";
 import { TrendingSection } from "../components/TrendingSection";
+import { useLanguage } from "../context/LanguageContext";
 import type { Phone } from "../data/phones";
 import { PHONES_DATA } from "../data/phones";
 import { useGetAllCategories, useGetAllPosts } from "../hooks/useQueries";
+import { T } from "../i18n/translations";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80";
@@ -34,12 +36,12 @@ const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
 
 const PRICE_RANGES = [
-  { label: "All", value: "all" },
-  { label: "Under ₹10k", value: "under10k" },
-  { label: "₹10k–15k", value: "10k-15k" },
-  { label: "₹15k–20k", value: "15k-20k" },
-  { label: "₹20k–30k", value: "20k-30k" },
-  { label: "₹30k+", value: "30k+" },
+  { labelKey: "all" as const, value: "all" },
+  { label: "Under \u20b910k", value: "under10k" },
+  { label: "\u20b910k\u201315k", value: "10k-15k" },
+  { label: "\u20b915k\u201320k", value: "15k-20k" },
+  { label: "\u20b920k\u201330k", value: "20k-30k" },
+  { label: "\u20b930k+", value: "30k+" },
 ];
 
 function CompareModal({
@@ -59,7 +61,7 @@ function CompareModal({
     { label: "Camera", key: (p: Phone) => p.specs.camera },
     { label: "Battery", key: (p: Phone) => p.specs.battery },
     { label: "Expert Score", key: (p: Phone) => `${p.expertScore}/10` },
-    { label: "Rating", key: (p: Phone) => `${p.rating}/5 ⭐` },
+    { label: "Rating", key: (p: Phone) => `${p.rating}/5 \u2b50` },
   ];
 
   return (
@@ -105,6 +107,8 @@ function CompareModal({
 export function HomePage() {
   const { data: posts = [] } = useGetAllPosts();
   const { data: categories = [] } = useGetAllCategories();
+  const { lang } = useLanguage();
+  const t = T[lang];
   const [email, setEmail] = useState("");
   const [priceFilter, setPriceFilter] = useState("all");
   const [comparePhones, setComparePhones] = useState<Phone[]>([]);
@@ -127,7 +131,9 @@ export function HomePage() {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
-      toast.success("Subscribed! Welcome to OmniSphere newsletter! 🎉");
+      toast.success(
+        "Subscribed! Welcome to OmniSphere newsletter! \ud83c\udf89",
+      );
       setEmail("");
     }
   };
@@ -170,16 +176,16 @@ export function HomePage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight mb-5">
-              Tech Ki Duniya, <span className="text-primary">Hinglish</span>{" "}
-              Mein
+              {t.hero_title1}{" "}
+              <span className="text-primary">{t.hero_title_accent}</span>{" "}
+              {t.hero_title2}
             </h1>
 
             <p className="text-lg text-muted-foreground mb-3">
-              India ka Best Hinglish Tech Blog
+              {t.hero_tagline}
             </p>
             <p className="text-base text-muted-foreground mb-8 max-w-xl">
-              Smartphones, Laptops, Reviews aur bahut kuch — simple Hinglish
-              mein, jo sabko samajh aaye.
+              {t.hero_desc}
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -189,7 +195,7 @@ export function HomePage() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 gap-2"
                 data-ocid="hero.primary_button"
               >
-                Latest Articles
+                {t.hero_cta}
                 <ArrowRight size={18} />
               </Button>
               <Button
@@ -198,7 +204,7 @@ export function HomePage() {
                 className="font-semibold px-6"
                 onClick={() => navigate({ to: "/about" })}
               >
-                About Us
+                {t.hero_about}
               </Button>
             </div>
           </div>
@@ -210,10 +216,10 @@ export function HomePage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-foreground">
-              Featured Posts
+              {t.featured_title}
             </h2>
             <p className="text-sm text-muted-foreground mt-1">
-              Editor ki top picks — must read articles
+              {t.featured_sub}
             </p>
           </div>
           <Link
@@ -221,7 +227,7 @@ export function HomePage() {
             params={{ slug: "reviews" }}
             className="text-sm font-medium text-primary hover:underline flex items-center gap-1"
           >
-            View All <ChevronRight size={16} />
+            {t.view_all} <ChevronRight size={16} />
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -250,10 +256,10 @@ export function HomePage() {
       {/* Browse Phones */}
       <section className="container mx-auto px-4 py-14">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-foreground">Browse Phones</h2>
-          <p className="text-sm text-muted-foreground mt-1">
-            Compare, save aur best phone dhundho
-          </p>
+          <h2 className="text-2xl font-bold text-foreground">
+            {t.browse_budget}
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">{t.browse_sub}</p>
         </div>
 
         {/* Price filter tabs */}
@@ -270,14 +276,13 @@ export function HomePage() {
               }`}
               data-ocid="phone_card.tab"
             >
-              {range.label}
+              {range.labelKey ? t[range.labelKey] : (range as any).label}
             </button>
           ))}
         </div>
 
         <p className="text-sm text-muted-foreground mb-4">
-          {filteredPhones.length} phone{filteredPhones.length !== 1 ? "s" : ""}{" "}
-          found
+          {filteredPhones.length} {t.phones_found}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -291,8 +296,11 @@ export function HomePage() {
             />
           ))}
           {filteredPhones.length === 0 && (
-            <div className="col-span-full text-center py-12 text-muted-foreground">
-              <p className="text-lg">No phones found in this range</p>
+            <div
+              className="col-span-full text-center py-12 text-muted-foreground"
+              data-ocid="phone_card.empty_state"
+            >
+              <p className="text-lg">{t.no_phones}</p>
             </div>
           )}
         </div>
@@ -303,10 +311,10 @@ export function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-foreground">
-              Browse by Category
+              {t.categories_title}
             </h2>
             <p className="text-sm text-muted-foreground mt-1">
-              Apni favourite category choose karo
+              {t.categories_sub}
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -337,11 +345,9 @@ export function HomePage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-foreground">
-              Latest Articles
+              {t.latest_title}
             </h2>
-            <p className="text-sm text-muted-foreground mt-1">
-              Sabse fresh content — aaj hi padho
-            </p>
+            <p className="text-sm text-muted-foreground mt-1">{t.latest_sub}</p>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -367,12 +373,9 @@ export function HomePage() {
       <section className="bg-foreground text-background py-14">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center">
-            <div className="text-4xl mb-4">📬</div>
-            <h2 className="text-2xl font-bold mb-2">Stay Updated!</h2>
-            <p className="text-background/70 mb-6">
-              Latest tech articles, reviews aur tips directly aapke inbox mein —
-              bilkul free!
-            </p>
+            <div className="text-4xl mb-4">\ud83d\udcec</div>
+            <h2 className="text-2xl font-bold mb-2">{t.newsletter_title}</h2>
+            <p className="text-background/70 mb-6">{t.newsletter_sub}</p>
             <form
               onSubmit={handleSubscribe}
               className="flex flex-col sm:flex-row gap-3"
@@ -391,11 +394,11 @@ export function HomePage() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 whitespace-nowrap"
                 data-ocid="newsletter.submit_button"
               >
-                Subscribe 🚀
+                {t.subscribe}
               </Button>
             </form>
             <p className="text-xs text-background/40 mt-3">
-              No spam. Kabhi bhi unsubscribe kar sakte hain.
+              {t.newsletter_no_spam}
             </p>
           </div>
         </div>
@@ -433,8 +436,9 @@ export function HomePage() {
                 type="button"
                 onClick={() => setComparePhones([])}
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                data-ocid="compare.secondary_button"
               >
-                Clear
+                {t.clear}
               </button>
               <Button
                 size="sm"
@@ -443,7 +447,7 @@ export function HomePage() {
                 disabled={comparePhones.length < 2}
                 data-ocid="compare.button"
               >
-                Compare Now ({comparePhones.length})
+                {t.compare_now} ({comparePhones.length})
               </Button>
             </div>
           </div>

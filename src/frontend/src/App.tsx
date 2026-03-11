@@ -10,6 +10,7 @@ import {
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { PhoneQuiz } from "./components/PhoneQuiz";
+import { LanguageProvider } from "./context/LanguageContext";
 import { AboutPage } from "./pages/AboutPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
@@ -19,15 +20,17 @@ import { WishlistPage } from "./pages/WishlistPage";
 // Root Layout
 function RootLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Header />
-      <div className="flex-1">
-        <Outlet />
+    <LanguageProvider>
+      <div className="min-h-screen flex flex-col bg-background">
+        <Header />
+        <div className="flex-1">
+          <Outlet />
+        </div>
+        <Footer />
+        <Toaster position="bottom-right" />
+        <PhoneQuiz />
       </div>
-      <Footer />
-      <Toaster position="bottom-right" />
-      <PhoneQuiz />
-    </div>
+    </LanguageProvider>
   );
 }
 

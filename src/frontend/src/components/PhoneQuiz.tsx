@@ -1,190 +1,127 @@
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-
-const QUIZ_PHONES = [
-  {
-    name: "Redmi Note 13",
-    price: 13999,
-    brand: "Redmi",
-    has5G: true,
-    priority: "Camera",
-    budget: "10-20k",
-    specs: "6GB RAM • 108MP • 5000mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "Realme 12x",
-    price: 12999,
-    brand: "Realme",
-    has5G: true,
-    priority: "All rounder",
-    budget: "10-20k",
-    specs: "6GB RAM • 50MP • 5000mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "Redmi A3",
-    price: 7499,
-    brand: "Redmi",
-    has5G: false,
-    priority: "Battery",
-    budget: "Under 10k",
-    specs: "4GB RAM • 50MP • 5000mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "Realme C55",
-    price: 9999,
-    brand: "Realme",
-    has5G: false,
-    priority: "Camera",
-    budget: "Under 10k",
-    specs: "6GB RAM • 64MP • 5000mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "iQOO Z9 Lite",
-    price: 17999,
-    brand: "Any",
-    has5G: true,
-    priority: "Performance",
-    budget: "15-20k",
-    specs: "8GB RAM • 50MP • 5000mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "Samsung M35",
-    price: 19999,
-    brand: "Samsung",
-    has5G: true,
-    priority: "Battery",
-    budget: "15-20k",
-    specs: "8GB RAM • 50MP • 6000mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "OnePlus Nord CE4",
-    price: 24999,
-    brand: "OnePlus",
-    has5G: true,
-    priority: "Performance",
-    budget: "20-30k",
-    specs: "8GB RAM • 50MP • 5500mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "Realme GT 6T",
-    price: 29999,
-    brand: "Realme",
-    has5G: true,
-    priority: "All rounder",
-    budget: "20-30k",
-    specs: "12GB RAM • 50MP • 5500mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "Samsung S24 FE",
-    price: 35999,
-    brand: "Samsung",
-    has5G: true,
-    priority: "Camera",
-    budget: "30k+",
-    specs: "8GB RAM • 50MP • 4700mAh",
-    amazonUrl: "https://amazon.in",
-  },
-  {
-    name: "OnePlus 12R",
-    price: 39999,
-    brand: "OnePlus",
-    has5G: true,
-    priority: "Performance",
-    budget: "30k+",
-    specs: "8GB RAM • 50MP • 5500mAh",
-    amazonUrl: "https://amazon.in",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
+import { PHONES_DATA } from "../data/phones";
+import { FALLBACK_IMAGE } from "../data/phones";
+import { T } from "../i18n/translations";
 
 const STEPS = [
   {
-    question: "Budget kya hai?",
-    key: "budget",
-    options: ["Under 10k", "10-20k", "20-30k", "30k+"],
+    id: "budget",
+    question: "Aapka budget kya hai?",
+    options: [
+      { label: "Under \u20b910k", value: "under10k" },
+      { label: "\u20b910k\u201320k", value: "10k-20k" },
+      { label: "\u20b920k\u201330k", value: "20k-30k" },
+      { label: "\u20b930k+", value: "30k+" },
+    ],
   },
   {
-    question: "Sabse important feature?",
-    key: "priority",
-    options: ["Camera", "Battery", "Performance", "All rounder"],
+    id: "priority",
+    question: "Aapki priority kya hai?",
+    options: [
+      { label: "\ud83d\udcf8 Camera", value: "camera" },
+      { label: "\ud83d\udd0b Battery", value: "battery" },
+      { label: "\u26a1 Performance", value: "performance" },
+      { label: "\ud83c\udf1f All Rounder", value: "allrounder" },
+    ],
   },
   {
-    question: "Phone ka main use?",
-    key: "usage",
-    options: ["Gaming", "Social Media", "Business", "Basic use"],
+    id: "usage",
+    question: "Phone kaisa use karenge?",
+    options: [
+      { label: "\ud83c\udfae Gaming", value: "gaming" },
+      { label: "\ud83d\udcf1 Social Media", value: "social" },
+      { label: "\ud83d\udcbc Business", value: "business" },
+      { label: "\ud83d\udc4c Basic Use", value: "basic" },
+    ],
   },
   {
+    id: "5g",
     question: "5G chahiye?",
-    key: "needs5G",
-    options: ["Yes", "No", "Don't care"],
+    options: [
+      { label: "\u2705 Yes, chahiye", value: "yes" },
+      { label: "\u274c Nahi chahiye", value: "no" },
+      { label: "\ud83e\udd37 Don't care", value: "any" },
+    ],
   },
   {
+    id: "brand",
     question: "Brand preference?",
-    key: "brand",
-    options: ["Redmi", "Realme", "Samsung", "OnePlus", "Any"],
+    options: [
+      { label: "Redmi", value: "redmi" },
+      { label: "Realme", value: "realme" },
+      { label: "Samsung", value: "samsung" },
+      { label: "OnePlus", value: "oneplus" },
+      { label: "\ud83d\udc4c Any Brand", value: "any" },
+    ],
   },
 ];
 
-type Answers = Record<string, string>;
+function getRecommendations(answers: Record<string, string>) {
+  let filtered = [...PHONES_DATA];
 
-function getResults(answers: Answers) {
-  const scored = QUIZ_PHONES.map((phone) => {
-    let score = 0;
-    if (phone.budget === answers.budget) score += 3;
-    if (phone.priority === answers.priority) score += 2;
-    if (
-      answers.brand === "Any" ||
-      phone.brand === answers.brand ||
-      phone.brand === "Any"
-    )
-      score += 1;
-    if (answers.needs5G === "Yes" && phone.has5G) score += 1;
-    if (answers.needs5G === "No" && !phone.has5G) score += 1;
-    if (answers.needs5G === "Don't care") score += 0.5;
-    return { ...phone, score };
-  });
-  return scored.sort((a, b) => b.score - a.score).slice(0, 3);
+  const budget = answers.budget;
+  if (budget === "under10k")
+    filtered = filtered.filter((p) => p.priceValue <= 10000);
+  else if (budget === "10k-20k")
+    filtered = filtered.filter(
+      (p) => p.priceValue > 10000 && p.priceValue <= 20000,
+    );
+  else if (budget === "20k-30k")
+    filtered = filtered.filter(
+      (p) => p.priceValue > 20000 && p.priceValue <= 30000,
+    );
+  else if (budget === "30k+")
+    filtered = filtered.filter((p) => p.priceValue > 30000);
+
+  const brand = answers.brand;
+  if (brand && brand !== "any") {
+    const brandFiltered = filtered.filter((p) =>
+      p.name.toLowerCase().includes(brand.toLowerCase()),
+    );
+    if (brandFiltered.length > 0) filtered = brandFiltered;
+  }
+
+  filtered.sort((a, b) => b.expertScore - a.expertScore);
+  return filtered.slice(0, 3);
 }
 
 export function PhoneQuiz() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Answers>({});
-  const [results, setResults] = useState<typeof QUIZ_PHONES | null>(null);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [results, setResults] = useState<typeof PHONES_DATA>([]);
+  const [showResults, setShowResults] = useState(false);
+  const { lang } = useLanguage();
+  const t = T[lang];
 
   const handleOpen = () => {
     setOpen(true);
     setStep(0);
     setAnswers({});
-    setResults(null);
+    setShowResults(false);
   };
-  const handleClose = () => setOpen(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleAnswer = (value: string) => {
-    const key = STEPS[step].key;
-    const newAnswers = { ...answers, [key]: value };
+    const newAnswers = { ...answers, [STEPS[step].id]: value };
     setAnswers(newAnswers);
     if (step < STEPS.length - 1) {
       setStep(step + 1);
     } else {
-      setResults(getResults(newAnswers));
+      setResults(getRecommendations(newAnswers));
+      setShowResults(true);
     }
   };
 
-  const handleRestart = () => {
-    setStep(0);
-    setAnswers({});
-    setResults(null);
+  const handleShare = (phone: (typeof PHONES_DATA)[0]) => {
+    const text = `Mere liye best phone hai ${phone.name} (${phone.price})! OmniSphere pe dekho \ud83d\ude80`;
+    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
   };
 
   return (
@@ -195,8 +132,8 @@ export function PhoneQuiz() {
         data-ocid="quiz.open_modal_button"
         className="fixed bottom-20 right-5 z-40 flex items-center gap-2 bg-[#E63946] text-white font-bold px-4 py-3 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 text-sm"
       >
-        <span className="text-base">📱</span>
-        Find My Phone
+        <span className="text-base">\ud83d\udcf1</span>
+        {t.quiz_btn}
       </button>
 
       <AnimatePresence>
@@ -217,7 +154,7 @@ export function PhoneQuiz() {
               <div className="bg-[#E63946] p-5 flex items-center justify-between">
                 <div>
                   <h2 className="text-white font-bold text-xl">
-                    📱 Find My Phone
+                    \ud83d\udcf1 {t.quiz_btn}
                   </h2>
                   <p className="text-white/80 text-sm">
                     Perfect phone dhundhne mein madad karta hoon!
@@ -229,125 +166,115 @@ export function PhoneQuiz() {
                   data-ocid="quiz.close_button"
                   className="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/20 transition-colors"
                 >
-                  <X size={22} />
+                  \u2715
                 </button>
               </div>
 
               <div className="p-6">
-                {!results ? (
+                {!showResults ? (
                   <>
-                    <div className="mb-6">
-                      <div className="flex justify-between text-sm text-muted-foreground mb-2">
-                        <span>
-                          Step {step + 1} of {STEPS.length}
-                        </span>
-                        <span>
-                          {Math.round((step / STEPS.length) * 100)}% Complete
-                        </span>
-                      </div>
-                      <Progress
-                        value={(step / STEPS.length) * 100}
-                        className="h-2"
-                      />
-                    </div>
-
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={step}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <h3 className="text-lg font-bold text-foreground mb-4">
-                          {STEPS[step].question}
-                        </h3>
-                        <div className="grid grid-cols-2 gap-3">
-                          {STEPS[step].options.map((option) => (
-                            <button
-                              type="button"
-                              key={option}
-                              onClick={() => handleAnswer(option)}
-                              data-ocid={`quiz.step.${step + 1}` as any}
-                              className="p-3 rounded-xl border-2 border-border bg-card text-card-foreground font-semibold text-sm hover:border-[#E63946] hover:bg-[#E63946]/5 hover:text-[#E63946] transition-all duration-150 text-left"
-                            >
-                              {option}
-                            </button>
-                          ))}
-                        </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
-                    <div className="text-center mb-5">
-                      <div className="text-3xl mb-2">🎯</div>
-                      <h3 className="text-xl font-bold text-foreground">
-                        Tumhare liye Best Phones!
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Answers ke basis par top 3 phones
-                      </p>
-                    </div>
-
-                    <div className="space-y-3 mb-5">
-                      {results.map((phone, i) => (
+                    {/* Progress */}
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
                         <div
-                          key={phone.name}
-                          data-ocid={`quiz.result.item.${i + 1}` as any}
-                          className="flex items-center justify-between p-4 rounded-xl border-2 border-border bg-card gap-3"
+                          className="h-full bg-[#E63946] rounded-full transition-all duration-500"
+                          style={{
+                            width: `${((step + 1) / STEPS.length) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="text-xs text-muted-foreground font-medium shrink-0">
+                        Step {step + 1} / {STEPS.length}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-foreground mb-5">
+                      {STEPS[step].question}
+                    </h3>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      {STEPS[step].options.map((opt) => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => handleAnswer(opt.value)}
+                          className="p-3 rounded-xl border border-border bg-card text-foreground font-medium text-sm hover:border-[#E63946] hover:bg-[#E63946]/5 transition-all duration-150 text-left"
+                          data-ocid="quiz.button"
                         >
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-[#E63946] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
-                              #{i + 1}
-                            </div>
-                            <div>
-                              <p className="font-bold text-foreground text-sm">
-                                {phone.name}
-                              </p>
-                              <p className="text-xs text-muted-foreground">
-                                {phone.specs}
-                              </p>
-                              <p className="text-sm font-bold text-[#E63946]">
-                                ₹{phone.price.toLocaleString("en-IN")}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex flex-col gap-2 flex-shrink-0">
-                            <a
-                              href={phone.amazonUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              data-ocid={`quiz.amazon_button.${i + 1}` as any}
-                              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-[#FF9900] text-white hover:opacity-90 transition-opacity text-center"
-                            >
-                              Amazon
-                            </a>
-                            <a
-                              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`Mere liye best phone hai ${phone.name}! Check karo: https://omnisphere.in`)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              data-ocid={`quiz.whatsapp_button.${i + 1}` as any}
-                              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-green-600 text-white hover:opacity-90 transition-opacity text-center"
-                            >
-                              Share
-                            </a>
-                          </div>
-                        </div>
+                          {opt.label}
+                        </button>
                       ))}
                     </div>
-
-                    <Button
-                      onClick={handleRestart}
-                      variant="outline"
-                      className="w-full border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white"
+                  </>
+                ) : (
+                  <>
+                    <h3 className="text-lg font-bold text-foreground mb-1">
+                      \ud83c\udf89 Aapke liye best phones!
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      Aapki answers ke basis par yeh phones best hain:
+                    </p>
+                    <div className="flex flex-col gap-4">
+                      {results.map((phone, i) => (
+                        <div
+                          key={phone.id}
+                          className="flex items-center gap-4 p-3 rounded-xl border border-border bg-card"
+                          data-ocid={`quiz.item.${i + 1}`}
+                        >
+                          <div className="text-2xl font-bold text-[#E63946] w-6 shrink-0">
+                            #{i + 1}
+                          </div>
+                          <img
+                            src={phone.imageUrl}
+                            alt={phone.name}
+                            crossOrigin="anonymous"
+                            className="w-14 h-14 rounded-lg object-cover shrink-0"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src =
+                                FALLBACK_IMAGE;
+                            }}
+                          />
+                          <div className="flex-1 min-w-0">
+                            <p className="font-bold text-foreground text-sm truncate">
+                              {phone.name}
+                            </p>
+                            <p className="text-primary font-semibold text-sm">
+                              {phone.price}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              {phone.specs.ram} \u2022 {phone.specs.camera}{" "}
+                              \u2022 {phone.specs.battery}
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => handleShare(phone)}
+                            className="shrink-0 p-2 rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors"
+                            aria-label="Share on WhatsApp"
+                          >
+                            \ud83d\udcac
+                          </button>
+                        </div>
+                      ))}
+                      {results.length === 0 && (
+                        <p className="text-center text-muted-foreground py-4">
+                          Koi phone match nahi kiya. Filters change karein.
+                        </p>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setStep(0);
+                        setAnswers({});
+                        setShowResults(false);
+                      }}
+                      className="mt-5 w-full py-2.5 rounded-xl border border-border text-sm text-muted-foreground hover:bg-muted transition-colors"
+                      data-ocid="quiz.secondary_button"
                     >
-                      🔄 Quiz Dobara Lena
-                    </Button>
-                  </motion.div>
+                      Dobara try karo
+                    </button>
+                  </>
                 )}
               </div>
             </motion.div>
