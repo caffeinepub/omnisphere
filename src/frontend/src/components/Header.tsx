@@ -270,6 +270,13 @@ export function Header() {
           >
             <Heart size={14} /> {t.nav_wishlist}
           </Link>
+          <Link
+            to="/hire-us"
+            className="text-sm font-semibold px-4 py-1.5 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
+            data-ocid="header.hire_us.link"
+          >
+            Hire Us
+          </Link>
         </nav>
 
         {/* Smart Search */}
@@ -463,6 +470,14 @@ export function Header() {
               data-ocid="header.link"
             >
               <Heart size={14} /> {t.nav_wishlist}
+            </Link>
+            <Link
+              to="/hire-us"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2.5 rounded-lg text-sm font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors text-center mt-1"
+              data-ocid="header.hire_us.link"
+            >
+              Hire Us
             </Link>
           </nav>
         </div>

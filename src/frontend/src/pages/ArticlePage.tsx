@@ -1,12 +1,21 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "@tanstack/react-router";
-import { ArrowLeft, Calendar, Clock, Share2, User } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  RefreshCw,
+  Share2,
+  User,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { SiFacebook, SiWhatsapp, SiX } from "react-icons/si";
 import { ArticleCard } from "../components/ArticleCard";
 import { BackToTop } from "../components/BackToTop";
+import { HelpfulWidget } from "../components/HelpfulWidget";
 import { ReviewSystem } from "../components/ReviewSystem";
+import { TableOfContents } from "../components/TableOfContents";
 import { CATEGORY_COLOR_MAP } from "../data/posts";
 import { useGetAllPosts, useGetPostBySlug } from "../hooks/useQueries";
 
@@ -49,6 +58,11 @@ export function ArticlePage() {
       "bg-primary text-primary-foreground")
     : "";
 
+  // Calculate "last updated" date (1 day after publish)
+  const lastUpdated = post
+    ? new Date(new Date(post.publishedAt).getTime() + 86400000 * 1)
+    : null;
+
   if (!post) {
     return (
       <div
@@ -76,7 +90,7 @@ export function ArticlePage() {
         data-ocid="article.loading_state"
       />
 
-      <main className="container mx-auto px-4 py-8 max-w-4xl">
+      <main className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Back button */}
         <Link
           to="/"
@@ -101,7 +115,7 @@ export function ArticlePage() {
           <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-5">
             {post.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-5 border-b border-border">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-3 border-b border-border">
             <span className="flex items-center gap-1.5">
               <User size={14} />
               {post.author}
@@ -114,11 +128,26 @@ export function ArticlePage() {
                 year: "numeric",
               })}
             </span>
+            {lastUpdated && (
+              <span className="flex items-center gap-1.5 text-primary/80">
+                <RefreshCw size={13} />
+                Updated:{" "}
+                {lastUpdated.toLocaleDateString("en-IN", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
+            )}
             <span className="flex items-center gap-1.5">
               <Clock size={14} />
               {post.readingTimeMinutes} min read
             </span>
           </div>
+          <p className="text-xs text-muted-foreground mt-2 italic">
+            💡 Prices mentioned may vary. Check Amazon/Flipkart for latest
+            prices.
+          </p>
         </div>
 
         {/* Social Share Bar */}
@@ -156,29 +185,45 @@ export function ArticlePage() {
           </a>
         </div>
 
-        {/* Article Content */}
-        <article
-          className="article-content"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: article content is pre-sanitized
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        {/* Two-column layout on desktop: article + TOC sidebar */}
+        <div className="md:grid md:grid-cols-[1fr_280px] md:gap-10 md:items-start">
+          <div>
+            {/* Mobile TOC (above article) */}
+            <TableOfContents content={post.content} />
 
-        {/* Tags */}
-        {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-border">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-3 py-1 bg-muted rounded-full text-muted-foreground font-medium"
-              >
-                #{tag}
-              </span>
-            ))}
+            {/* Article Content */}
+            <article
+              className="article-content"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: article content is pre-sanitized
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+
+            {/* Tags */}
+            {post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-border">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-3 py-1 bg-muted rounded-full text-muted-foreground font-medium"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Helpful Widget */}
+            <HelpfulWidget articleSlug={slug} />
+
+            {/* Review System */}
+            <ReviewSystem articleSlug={slug} />
           </div>
-        )}
 
-        {/* Review System */}
-        <ReviewSystem articleSlug={slug} />
+          {/* Desktop TOC sidebar */}
+          <div className="hidden md:block">
+            <TableOfContents content={post.content} />
+          </div>
+        </div>
 
         {/* Related Articles */}
         {relatedPosts.length > 0 && (
@@ -203,6 +248,19 @@ export function ArticlePage() {
           </section>
         )}
       </main>
+
+      {/* Floating WhatsApp share button on mobile */}
+      {readProgress > 5 && (
+        <a
+          href={`https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:hidden fixed bottom-20 right-4 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-2.5 rounded-full shadow-xl text-sm font-semibold"
+          data-ocid="article.share_button"
+        >
+          <SiWhatsapp size={16} /> Share
+        </a>
+      )}
 
       <BackToTop />
     </>

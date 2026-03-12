@@ -10,11 +10,15 @@ import {
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { PhoneQuiz } from "./components/PhoneQuiz";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { LanguageProvider } from "./context/LanguageContext";
 import { AboutPage } from "./pages/AboutPage";
+import { AdminPage } from "./pages/AdminPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
+import { HireUsPage } from "./pages/HireUsPage";
 import { HomePage } from "./pages/HomePage";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { WishlistPage } from "./pages/WishlistPage";
 
 // Root Layout
@@ -22,6 +26,7 @@ function RootLayout() {
   return (
     <LanguageProvider>
       <div className="min-h-screen flex flex-col bg-background">
+        <ScrollToTop />
         <Header />
         <div className="flex-1">
           <Outlet />
@@ -67,12 +72,33 @@ const wishlistRoute = createRoute({
   component: WishlistPage,
 });
 
+const privacyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/privacy-policy",
+  component: PrivacyPolicyPage,
+});
+
+const hireUsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/hire-us",
+  component: HireUsPage,
+});
+
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   articleRoute,
   categoryRoute,
   aboutRoute,
   wishlistRoute,
+  privacyRoute,
+  hireUsRoute,
+  adminRoute,
 ]);
 
 const hashHistory = createHashHistory();

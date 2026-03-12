@@ -38,6 +38,16 @@ function useWishlist(phoneId: string) {
   return { saved, toggle };
 }
 
+function saveRecentlyViewed(id: string) {
+  try {
+    const list: string[] = JSON.parse(
+      localStorage.getItem("omni_recently_viewed") || "[]",
+    );
+    const next = [id, ...list.filter((i) => i !== id)].slice(0, 6);
+    localStorage.setItem("omni_recently_viewed", JSON.stringify(next));
+  } catch {}
+}
+
 const STAR_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 
 function StarRating({ rating }: { rating: number }) {
@@ -78,9 +88,11 @@ export function PhoneCard({
   const hasPriceDrop = phone.originalPrice > phone.priceValue;
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: card click tracks recently viewed, not primary action
     <div
-      className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
+      className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex flex-col cursor-pointer"
       data-ocid={`phone_card.item.${index}`}
+      onClick={() => saveRecentlyViewed(phone.id)}
     >
       <div className="relative overflow-hidden">
         <img
@@ -105,7 +117,10 @@ export function PhoneCard({
         </div>
         <button
           type="button"
-          onClick={toggleWishlist}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleWishlist();
+          }}
           className="absolute top-2 right-2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm hover:scale-110 transition-transform"
           aria-label={saved ? "Remove from wishlist" : "Add to wishlist"}
         >
@@ -161,7 +176,11 @@ export function PhoneCard({
         </div>
 
         {onCompareToggle && (
-          <div className="flex items-center gap-2 pt-1">
+          // biome-ignore lint/a11y/useKeyWithClickEvents: stopPropagation only, not primary action
+          <div
+            className="flex items-center gap-2 pt-1"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Checkbox
               id={`compare-${phone.id}`}
               checked={isInCompare}

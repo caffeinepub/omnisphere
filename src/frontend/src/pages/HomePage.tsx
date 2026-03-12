@@ -21,12 +21,16 @@ import { toast } from "sonner";
 import { ArticleCard } from "../components/ArticleCard";
 import { DealOfTheDay } from "../components/DealOfTheDay";
 import { EmiCalculator } from "../components/EmiCalculator";
+import { LaptopCard } from "../components/LaptopCard";
 import { PhoneCard } from "../components/PhoneCard";
+import { RecentlyViewedPhones } from "../components/RecentlyViewedPhones";
 import { ShareButtons } from "../components/ShareButtons";
 import { TrendingSection } from "../components/TrendingSection";
 import { useLanguage } from "../context/LanguageContext";
+import { LAPTOPS_DATA } from "../data/laptops";
 import type { Phone } from "../data/phones";
 import { PHONES_DATA } from "../data/phones";
+import { useActor } from "../hooks/useActor";
 import { useGetAllCategories, useGetAllPosts } from "../hooks/useQueries";
 import { T } from "../i18n/translations";
 
@@ -115,24 +119,59 @@ export function HomePage() {
   const [compareOpen, setCompareOpen] = useState(false);
   const latestRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
+  const { actor } = useActor();
 
   const featuredPosts = posts.slice(0, 3);
   const latestPosts = posts.slice(0, 6);
 
   const filteredPhones =
     priceFilter === "all"
-      ? PHONES_DATA
-      : PHONES_DATA.filter((p) => p.priceRange === priceFilter);
+      ? PHONES_DATA.filter((p) => !p.comingSoon)
+      : PHONES_DATA.filter(
+          (p) => p.priceRange === priceFilter && !p.comingSoon,
+        );
+
+  const [laptopFilter, setLaptopFilter] = useState("all");
+  const filteredLaptops =
+    laptopFilter === "all"
+      ? LAPTOPS_DATA.filter((l) => !l.comingSoon)
+      : LAPTOPS_DATA.filter(
+          (l) => l.priceRange === laptopFilter && !l.comingSoon,
+        );
+
+  const upcomingPhones = PHONES_DATA.filter((p) => p.comingSoon);
+  const upcomingLaptops = LAPTOPS_DATA.filter((l) => l.comingSoon);
 
   const scrollToLatest = () => {
     latestRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    try {
+      if (!actor) {
+        toast.success(
+          "Subscribed! Welcome to OmniSphere newsletter! \uD83C\uDF89",
+        );
+        setEmail("");
+        return;
+      }
+      const result = (await (actor as any).subscribeNewsletter(
+        email.trim(),
+      )) as boolean;
+      if (result) {
+        toast.success(
+          "Subscribed! Welcome to OmniSphere newsletter! \uD83C\uDF89",
+        );
+      } else {
+        toast.info("Yeh email already subscribe hai!");
+      }
+      setEmail("");
+    } catch {
       toast.success(
-        "Subscribed! Welcome to OmniSphere newsletter! \ud83c\udf89",
+        "Subscribed! Welcome to OmniSphere newsletter! \uD83C\uDF89",
       );
       setEmail("");
     }
@@ -306,6 +345,127 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Browse Laptops */}
+      <section className="container mx-auto px-4 py-14">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-foreground">
+            Browse Laptops by Budget
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            India ke top laptops — students, professionals aur gamers ke liye
+          </p>
+        </div>
+
+        <div className="flex gap-2 overflow-x-auto pb-2 mb-6 scrollbar-hide">
+          {[
+            { label: "All Laptops", value: "all" },
+            { label: "Under ₹40k", value: "under40k" },
+            { label: "₹40k–70k", value: "40k-70k" },
+            { label: "₹70k+", value: "70k+" },
+          ].map((range) => (
+            <button
+              key={range.value}
+              type="button"
+              onClick={() => setLaptopFilter(range.value)}
+              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                laptopFilter === range.value
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+              data-ocid="laptop_card.tab"
+            >
+              {range.label}
+            </button>
+          ))}
+        </div>
+
+        <p className="text-sm text-muted-foreground mb-4">
+          {filteredLaptops.length} laptops found
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredLaptops.map((laptop, i) => (
+            <LaptopCard key={laptop.id} laptop={laptop} index={i + 1} />
+          ))}
+          {filteredLaptops.length === 0 && (
+            <div
+              className="col-span-full text-center py-12 text-muted-foreground"
+              data-ocid="laptop_card.empty_state"
+            >
+              <p className="text-lg">Is range mein koi laptop nahi mila</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Upcoming Launches */}
+      <section className="bg-amber-50/50 dark:bg-amber-950/20 border-y border-amber-200/50 dark:border-amber-800/30 py-14">
+        <div className="container mx-auto px-4">
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                Coming Soon
+              </span>
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">
+              Upcoming Launches — Kya Aane Wala Hai?
+            </h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              Next few months mein India mein launch hone wale phones aur
+              laptops
+            </p>
+          </div>
+
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+            {[...upcomingPhones, ...upcomingLaptops].map((device, i) => {
+              const isPhone =
+                "priceRange" in device &&
+                (device as any).specs?.camera !== undefined;
+              return (
+                <div
+                  key={device.id}
+                  className="shrink-0 w-56 bg-card border border-amber-200/60 dark:border-amber-800/40 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                  data-ocid={`upcoming.item.${i + 1}`}
+                >
+                  <div className="relative">
+                    <img
+                      src={device.imageUrl}
+                      alt={device.name}
+                      crossOrigin="anonymous"
+                      className="w-full h-32 object-cover"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src =
+                          "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute top-2 left-2">
+                      <span className="bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        {isPhone ? "Phone" : "Laptop"}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <h3 className="font-bold text-sm text-foreground leading-tight mb-1">
+                      {device.name}
+                    </h3>
+                    <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-1">
+                      {device.price}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground">
+                      Expected: {(device as any).expectedLaunch}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Recently Viewed Phones */}
+      <RecentlyViewedPhones />
+
       {/* Categories */}
       <section className="bg-muted/30 border-y border-border py-14">
         <div className="container mx-auto px-4">
@@ -373,7 +533,7 @@ export function HomePage() {
       <section className="bg-foreground text-background py-14">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center">
-            <div className="text-4xl mb-4">\ud83d\udcec</div>
+            <div className="text-4xl mb-4">📧</div>
             <h2 className="text-2xl font-bold mb-2">{t.newsletter_title}</h2>
             <p className="text-background/70 mb-6">{t.newsletter_sub}</p>
             <form
@@ -386,7 +546,8 @@ export function HomePage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 bg-background/10 border-background/20 text-background placeholder:text-background/40 focus-visible:ring-primary"
+                className="flex-1 bg-white border-white/30 placeholder:text-gray-500 focus-visible:ring-primary"
+                style={{ color: "#111827" }}
                 data-ocid="newsletter.input"
               />
               <Button

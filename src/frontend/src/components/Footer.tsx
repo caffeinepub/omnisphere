@@ -10,7 +10,6 @@ const CATEGORY_LINKS = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const hostname = encodeURIComponent(window.location.hostname);
 
   return (
     <footer className="bg-foreground text-background mt-16">
@@ -39,7 +38,7 @@ export function Footer() {
                 <SiX size={16} />
               </a>
               <a
-                href="https://wa.me"
+                href="https://wa.me/919235727927"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-background/10 text-background hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -87,6 +86,13 @@ export function Footer() {
               >
                 About
               </Link>
+              <Link
+                to="/hire-us"
+                className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                data-ocid="footer.hire_us.link"
+              >
+                Hire Us
+              </Link>
             </nav>
           </div>
 
@@ -101,8 +107,17 @@ export function Footer() {
               mein, jo sabko samajh aaye.
             </p>
             <p className="text-xs text-background/40 mt-3">
-              📧 hello@omnisphere.in
+              📧 hello@omnishpere.in
             </p>
+            <a
+              href="https://wa.me/919235727927"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-xl bg-[#25D366] text-white text-xs font-semibold hover:bg-[#1ebe5d] transition-colors"
+              data-ocid="footer.whatsapp.button"
+            >
+              💬 Free Consultation
+            </a>
           </div>
         </div>
 
@@ -110,17 +125,22 @@ export function Footer() {
           <p className="text-xs text-background/50">
             © {year} OmniSphere. All rights reserved.
           </p>
-          <p className="text-xs text-background/40">
-            Built with ❤️ using{" "}
-            <a
-              href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${hostname}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+          <div className="flex items-center gap-4">
+            <Link
+              to="/hire-us"
+              data-ocid="footer.hire_us.link"
+              className="text-xs text-primary font-semibold hover:text-primary/80 transition-colors"
             >
-              caffeine.ai
-            </a>
-          </p>
+              Hire Us
+            </Link>
+            <Link
+              to="/privacy-policy"
+              data-ocid="footer.privacy_policy.link"
+              className="text-xs text-background/50 hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

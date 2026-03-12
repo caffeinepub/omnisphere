@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://omnisphere.tech/</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/about</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/category/phones</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/category/laptops</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/category/reviews</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/category/gaming</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/category/tips</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/article/best-gaming-laptops-india-2024</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/article/iphone-vs-android-india</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnisphere.tech/#/article/laptop-buying-guide-india</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

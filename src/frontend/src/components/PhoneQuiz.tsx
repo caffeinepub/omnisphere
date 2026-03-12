@@ -20,29 +20,29 @@ const STEPS = [
     id: "priority",
     question: "Aapki priority kya hai?",
     options: [
-      { label: "\ud83d\udcf8 Camera", value: "camera" },
-      { label: "\ud83d\udd0b Battery", value: "battery" },
-      { label: "\u26a1 Performance", value: "performance" },
-      { label: "\ud83c\udf1f All Rounder", value: "allrounder" },
+      { label: "Camera", value: "camera" },
+      { label: "Battery", value: "battery" },
+      { label: "Performance", value: "performance" },
+      { label: "All Rounder", value: "allrounder" },
     ],
   },
   {
     id: "usage",
     question: "Phone kaisa use karenge?",
     options: [
-      { label: "\ud83c\udfae Gaming", value: "gaming" },
-      { label: "\ud83d\udcf1 Social Media", value: "social" },
-      { label: "\ud83d\udcbc Business", value: "business" },
-      { label: "\ud83d\udc4c Basic Use", value: "basic" },
+      { label: "Gaming", value: "gaming" },
+      { label: "Social Media", value: "social" },
+      { label: "Business", value: "business" },
+      { label: "Basic Use", value: "basic" },
     ],
   },
   {
     id: "5g",
     question: "5G chahiye?",
     options: [
-      { label: "\u2705 Yes, chahiye", value: "yes" },
-      { label: "\u274c Nahi chahiye", value: "no" },
-      { label: "\ud83e\udd37 Don't care", value: "any" },
+      { label: "Yes, chahiye", value: "yes" },
+      { label: "Nahi chahiye", value: "no" },
+      { label: "Don't care", value: "any" },
     ],
   },
   {
@@ -53,7 +53,7 @@ const STEPS = [
       { label: "Realme", value: "realme" },
       { label: "Samsung", value: "samsung" },
       { label: "OnePlus", value: "oneplus" },
-      { label: "\ud83d\udc4c Any Brand", value: "any" },
+      { label: "Any Brand", value: "any" },
     ],
   },
 ];
@@ -119,7 +119,7 @@ export function PhoneQuiz() {
   };
 
   const handleShare = (phone: (typeof PHONES_DATA)[0]) => {
-    const text = `Mere liye best phone hai ${phone.name} (${phone.price})! OmniSphere pe dekho \ud83d\ude80`;
+    const text = `Mere liye best phone hai ${phone.name} (${phone.price})! OmniSphere pe dekho`;
     const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
@@ -132,7 +132,6 @@ export function PhoneQuiz() {
         data-ocid="quiz.open_modal_button"
         className="fixed bottom-20 right-5 z-40 flex items-center gap-2 bg-[#E63946] text-white font-bold px-4 py-3 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 text-sm"
       >
-        <span className="text-base">\ud83d\udcf1</span>
         {t.quiz_btn}
       </button>
 
@@ -153,11 +152,9 @@ export function PhoneQuiz() {
             >
               <div className="bg-[#E63946] p-5 flex items-center justify-between">
                 <div>
-                  <h2 className="text-white font-bold text-xl">
-                    \ud83d\udcf1 {t.quiz_btn}
-                  </h2>
+                  <h2 className="text-white font-bold text-xl">{t.quiz_btn}</h2>
                   <p className="text-white/80 text-sm">
-                    Perfect phone dhundhne mein madad karta hoon!
+                    5 sawaalon mein aapka perfect phone dhundho!
                   </p>
                 </div>
                 <button
@@ -209,10 +206,10 @@ export function PhoneQuiz() {
                 ) : (
                   <>
                     <h3 className="text-lg font-bold text-foreground mb-1">
-                      \ud83c\udf89 Aapke liye best phones!
+                      Aapke liye best phones!
                     </h3>
                     <p className="text-sm text-muted-foreground mb-5">
-                      Aapki answers ke basis par yeh phones best hain:
+                      Aapke jawaabon ke hisaab se yeh phones perfect match hain:
                     </p>
                     <div className="flex flex-col gap-4">
                       {results.map((phone, i) => (
@@ -249,16 +246,16 @@ export function PhoneQuiz() {
                           <button
                             type="button"
                             onClick={() => handleShare(phone)}
-                            className="shrink-0 p-2 rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors"
+                            className="shrink-0 px-3 py-2 rounded-lg bg-green-500 text-white text-xs font-semibold hover:bg-green-600 transition-colors"
                             aria-label="Share on WhatsApp"
                           >
-                            \ud83d\udcac
+                            Share
                           </button>
                         </div>
                       ))}
                       {results.length === 0 && (
                         <p className="text-center text-muted-foreground py-4">
-                          Koi phone match nahi kiya. Filters change karein.
+                          Koi phone match nahi hua. Kripya dobara try karein.
                         </p>
                       )}
                     </div>
@@ -272,7 +269,7 @@ export function PhoneQuiz() {
                       className="mt-5 w-full py-2.5 rounded-xl border border-border text-sm text-muted-foreground hover:bg-muted transition-colors"
                       data-ocid="quiz.secondary_button"
                     >
-                      Dobara try karo
+                      Dobara Koshish Karein
                     </button>
                   </>
                 )}

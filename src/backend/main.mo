@@ -3,6 +3,7 @@ import Text "mo:core/Text";
 import Array "mo:core/Array";
 import Iter "mo:core/Iter";
 import Runtime "mo:core/Runtime";
+import List "mo:core/List";
 
 actor {
   type Post = {
@@ -30,6 +31,9 @@ actor {
   let posts = Map.empty<Text, Post>();
 
   let categories = Map.empty<Text, Category>();
+
+  // Newsletter subscriber emails
+  let subscriberEmails : List.List<Text> = List.empty<Text>();
 
   // Initialize categories
   let initialCategories : [Category] = [
@@ -201,5 +205,20 @@ actor {
       case (null) { Runtime.trap("Category not found") };
       case (?category) { category };
     };
+  };
+
+  // Subscribe to newsletter — stores email, returns false if already subscribed
+  public func subscribeNewsletter(email : Text) : async Bool {
+    let alreadyExists = subscriberEmails.contains(email);
+    if (alreadyExists) {
+      return false;
+    };
+    subscriberEmails.add(email);
+    return true;
+  };
+
+  // Get all subscribers (admin use)
+  public query func getSubscribers() : async [Text] {
+    subscriberEmails.toArray();
   };
 };

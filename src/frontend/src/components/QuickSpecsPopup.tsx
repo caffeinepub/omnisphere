@@ -1,3 +1,4 @@
+import { useNavigate } from "@tanstack/react-router";
 import { Star } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
@@ -17,6 +18,7 @@ export function QuickSpecsPopup({ phone, children }: QuickSpecsPopupProps) {
   const triggerRef = useRef<HTMLSpanElement>(null);
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navigate = useNavigate();
 
   const clearHide = () => {
     if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
@@ -50,6 +52,14 @@ export function QuickSpecsPopup({ phone, children }: QuickSpecsPopupProps) {
   const handleTouchEnd = () => {
     if (longPressRef.current) clearTimeout(longPressRef.current);
     scheduleHide();
+  };
+
+  const handleFullReview = () => {
+    setVisible(false);
+    const slug = phone.reviewSlug
+      ? `/article/${phone.reviewSlug}`
+      : "/category/reviews";
+    navigate({ to: slug });
   };
 
   useEffect(() => {
@@ -129,6 +139,8 @@ export function QuickSpecsPopup({ phone, children }: QuickSpecsPopupProps) {
             </div>
             <button
               type="button"
+              data-ocid="phone.review.button"
+              onClick={handleFullReview}
               className="w-full text-xs bg-primary text-primary-foreground rounded-lg py-1.5 font-semibold hover:bg-primary/90 transition-colors"
             >
               Full Review →

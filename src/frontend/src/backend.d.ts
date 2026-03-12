@@ -33,4 +33,6 @@ export interface backendInterface {
     getCategoryBySlug(slug: string): Promise<Category>;
     getPostBySlug(slug: string): Promise<Post>;
     getPostsByCategory(category: string): Promise<Array<Post>>;
+    subscribeNewsletter(email: string): Promise<boolean>;
+    getSubscribers(): Promise<Array<string>>;
 }
