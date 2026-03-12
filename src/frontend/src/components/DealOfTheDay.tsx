@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
 const DEAL = {
-  name: "Redmi Note 13 Pro+",
+  name: "Samsung Galaxy S23 FE 5G",
   image:
     "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80",
-  originalPrice: 27999,
-  dealPrice: 19999,
-  specs: "8GB RAM • 200MP Camera • 5000mAh • 120W Charging",
+  originalPrice: 54999,
+  dealPrice: 34999,
+  specs: "8GB RAM • 50MP Triple Camera • 4500mAh • Snapdragon 8 Gen 1",
   amazonUrl: "https://amazon.in",
   flipkartUrl: "https://flipkart.com",
 };

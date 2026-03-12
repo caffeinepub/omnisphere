@@ -35,9 +35,9 @@ import { useGetAllCategories, useGetAllPosts } from "../hooks/useQueries";
 import { T } from "../i18n/translations";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80";
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&fm=webp";
 const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&fm=webp";
 
 const PRICE_RANGES = [
   { labelKey: "all" as const, value: "all" },
@@ -198,6 +198,7 @@ export function HomePage() {
           src={HERO_IMAGE}
           alt="Tech background"
           crossOrigin="anonymous"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover opacity-10 dark:opacity-[0.07]"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
@@ -211,7 +212,7 @@ export function HomePage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              India ka #1 Hinglish Tech Blog
+              India's #1 Tech Blog | Gadget Reviews | Smartphones | Hinglish
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight mb-5">
@@ -427,15 +428,16 @@ export function HomePage() {
                   className="shrink-0 w-56 bg-card border border-amber-200/60 dark:border-amber-800/40 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
                   data-ocid={`upcoming.item.${i + 1}`}
                 >
-                  <div className="relative">
+                  <div className="relative overflow-hidden aspect-video">
                     <img
                       src={device.imageUrl}
                       alt={device.name}
                       crossOrigin="anonymous"
-                      className="w-full h-32 object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).src =
-                          "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+                          "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&fm=webp";
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

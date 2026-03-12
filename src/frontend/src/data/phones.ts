@@ -76,7 +76,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(7499),
     trending: { viewsToday: 342, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80&fm=webp",
     rating: 3.8,
     isRecommended: false,
     priceRange: "under10k",
@@ -107,7 +107,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(9999),
     trending: { viewsToday: 518, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80&fm=webp",
     rating: 4.0,
     isRecommended: false,
     priceRange: "under10k",
@@ -138,7 +138,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(5999),
     trending: { viewsToday: 198, isNewLaunch: false, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80&fm=webp",
     rating: 3.5,
     isRecommended: false,
     priceRange: "under10k",
@@ -169,7 +169,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(8999),
     trending: { viewsToday: 421, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&fm=webp",
     rating: 3.9,
     isRecommended: false,
     priceRange: "under10k",
@@ -200,7 +200,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(8499),
     trending: { viewsToday: 312, isNewLaunch: false, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80",
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80&fm=webp",
     rating: 3.9,
     isRecommended: false,
     priceRange: "under10k",
@@ -232,7 +232,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(13999),
     trending: { viewsToday: 1243, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80",
+      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80&fm=webp",
     rating: 4.4,
     isRecommended: true,
     priceRange: "10k-15k",
@@ -263,7 +263,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(12999),
     trending: { viewsToday: 876, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80&fm=webp",
     rating: 4.1,
     isRecommended: false,
     priceRange: "10k-15k",
@@ -294,7 +294,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(13499),
     trending: { viewsToday: 1102, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&fm=webp",
     rating: 4.2,
     isRecommended: true,
     priceRange: "10k-15k",
@@ -325,7 +325,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(14999),
     trending: { viewsToday: 1654, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80",
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80&fm=webp",
     rating: 4.5,
     isRecommended: true,
     priceRange: "10k-15k",
@@ -356,7 +356,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(14499),
     trending: { viewsToday: 1380, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80",
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80&fm=webp",
     rating: 4.3,
     isRecommended: true,
     priceRange: "10k-15k",
@@ -388,7 +388,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(17999),
     trending: { viewsToday: 2105, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80&fm=webp",
     rating: 4.5,
     isRecommended: true,
     priceRange: "15k-20k",
@@ -419,7 +419,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(19999),
     trending: { viewsToday: 1589, isNewLaunch: false, priceTrend: "up" },
     imageUrl:
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80&fm=webp",
     rating: 4.3,
     isRecommended: true,
     priceRange: "15k-20k",
@@ -450,7 +450,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(17999),
     trending: { viewsToday: 1342, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80",
+      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80&fm=webp",
     rating: 4.4,
     isRecommended: true,
     priceRange: "15k-20k",
@@ -481,7 +481,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(15999),
     trending: { viewsToday: 612, isNewLaunch: false, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80&fm=webp",
     rating: 4.0,
     isRecommended: false,
     priceRange: "15k-20k",
@@ -511,9 +511,9 @@ export const PHONES_DATA: Phone[] = [
       valueForMoney: 9.0,
     },
     priceHistory: generatePriceHistory(19499),
-    trending: { viewsToday: 2891, isNewLaunch: false, priceTrend: "down" },
+    trending: { viewsToday: 4200, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80",
+      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80&fm=webp",
     rating: 4.6,
     isRecommended: true,
     priceRange: "15k-20k",
@@ -545,7 +545,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(24999),
     trending: { viewsToday: 3241, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80",
+      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80&fm=webp",
     rating: 4.6,
     isRecommended: true,
     priceRange: "20k-30k",
@@ -576,7 +576,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(29999),
     trending: { viewsToday: 2780, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80&fm=webp",
     rating: 4.2,
     isRecommended: false,
     priceRange: "20k-30k",
@@ -607,7 +607,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(26999),
     trending: { viewsToday: 2156, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&fm=webp",
     rating: 4.4,
     isRecommended: true,
     priceRange: "20k-30k",
@@ -638,7 +638,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(22999),
     trending: { viewsToday: 3102, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80",
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80&fm=webp",
     rating: 4.6,
     isRecommended: true,
     priceRange: "20k-30k",
@@ -669,7 +669,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(22999),
     trending: { viewsToday: 1987, isNewLaunch: false, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80",
+      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80&fm=webp",
     rating: 4.4,
     isRecommended: true,
     priceRange: "20k-30k",
@@ -701,7 +701,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(23999),
     trending: { viewsToday: 3512, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "20k-30k",
@@ -733,7 +733,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(34999),
     trending: { viewsToday: 2843, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&fm=webp",
     rating: 4.5,
     isRecommended: true,
     priceRange: "30k+",
@@ -764,7 +764,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(33999),
     trending: { viewsToday: 3678, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80",
+      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
@@ -795,7 +795,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(37999),
     trending: { viewsToday: 2154, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
@@ -803,10 +803,10 @@ export const PHONES_DATA: Phone[] = [
   {
     id: "iphone-15",
     name: "iPhone 15",
-    price: "₹69,999",
-    priceValue: 69999,
-    amazonPrice: 68999,
-    flipkartPrice: 69999,
+    price: "₹72,900",
+    priceValue: 72900,
+    amazonPrice: 71999,
+    flipkartPrice: 72900,
     originalPrice: 79999,
     reviewSlug: "iphone-15-vs-samsung-s24-india-2026",
     specs: {
@@ -824,10 +824,10 @@ export const PHONES_DATA: Phone[] = [
       performance: 9.8,
       valueForMoney: 8.5,
     },
-    priceHistory: generatePriceHistory(69999),
-    trending: { viewsToday: 5421, isNewLaunch: false, priceTrend: "down" },
+    priceHistory: generatePriceHistory(72900),
+    trending: { viewsToday: 6200, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&q=80&fm=webp",
     rating: 4.8,
     isRecommended: true,
     priceRange: "30k+",
@@ -857,9 +857,9 @@ export const PHONES_DATA: Phone[] = [
       valueForMoney: 8.0,
     },
     priceHistory: generatePriceHistory(74999),
-    trending: { viewsToday: 4312, isNewLaunch: false, priceTrend: "down" },
+    trending: { viewsToday: 5800, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
@@ -889,9 +889,9 @@ export const PHONES_DATA: Phone[] = [
       valueForMoney: 9.5,
     },
     priceHistory: generatePriceHistory(39999),
-    trending: { viewsToday: 4107, isNewLaunch: false, priceTrend: "down" },
+    trending: { viewsToday: 4800, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80",
+      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
@@ -899,10 +899,10 @@ export const PHONES_DATA: Phone[] = [
   {
     id: "poco-f6-pro",
     name: "Poco F6 Pro",
-    price: "₹49,999",
-    priceValue: 49999,
-    amazonPrice: 49499,
-    flipkartPrice: 49999,
+    price: "₹32,999",
+    priceValue: 32999,
+    amazonPrice: 32499,
+    flipkartPrice: 32999,
     originalPrice: 54999,
     reviewSlug: "oneplus-12r-vs-poco-f6-pro-comparison",
     specs: {
@@ -920,10 +920,10 @@ export const PHONES_DATA: Phone[] = [
       performance: 9.8,
       valueForMoney: 9.5,
     },
-    priceHistory: generatePriceHistory(49999),
-    trending: { viewsToday: 3856, isNewLaunch: false, priceTrend: "down" },
+    priceHistory: generatePriceHistory(32999),
+    trending: { viewsToday: 5100, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80",
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
@@ -954,7 +954,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(52999),
     trending: { viewsToday: 4201, isNewLaunch: true, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80&fm=webp",
     rating: 4.8,
     isRecommended: true,
     priceRange: "30k+",
@@ -985,7 +985,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(38999),
     trending: { viewsToday: 2643, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80&fm=webp",
     rating: 4.5,
     isRecommended: true,
     priceRange: "30k+",
@@ -1017,7 +1017,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(31999),
     trending: { viewsToday: 2189, isNewLaunch: true, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80",
+      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80&fm=webp",
     rating: 4.6,
     isRecommended: true,
     priceRange: "30k+",
@@ -1048,7 +1048,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(44999),
     trending: { viewsToday: 3241, isNewLaunch: false, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80&fm=webp",
     rating: 4.6,
     isRecommended: true,
     priceRange: "30k+",
@@ -1079,7 +1079,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(35999),
     trending: { viewsToday: 3789, isNewLaunch: true, priceTrend: "down" },
     imageUrl:
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
@@ -1094,7 +1094,7 @@ export const PHONES_DATA: Phone[] = [
     flipkartPrice: 0,
     originalPrice: 0,
     comingSoon: true,
-    expectedLaunch: "March 2026",
+    expectedLaunch: "Already Launched - Feb 2026",
     specs: {
       processor: "Snapdragon 8 Elite",
       ram: "12GB RAM",
@@ -1113,7 +1113,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(80000),
     trending: { viewsToday: 2500, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&fm=webp",
     rating: 4.9,
     isRecommended: true,
     priceRange: "30k+",
@@ -1127,7 +1127,7 @@ export const PHONES_DATA: Phone[] = [
     flipkartPrice: 0,
     originalPrice: 0,
     comingSoon: true,
-    expectedLaunch: "Q1 2026",
+    expectedLaunch: "Already Launched - Jan 2026",
     specs: {
       processor: "Snapdragon 8 Elite",
       ram: "12GB RAM",
@@ -1146,7 +1146,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(69999),
     trending: { viewsToday: 2500, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80",
+      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80&fm=webp",
     rating: 4.8,
     isRecommended: true,
     priceRange: "30k+",
@@ -1160,7 +1160,7 @@ export const PHONES_DATA: Phone[] = [
     flipkartPrice: 0,
     originalPrice: 0,
     comingSoon: true,
-    expectedLaunch: "Sep 2026",
+    expectedLaunch: "Already Launched - Sep 2025",
     specs: {
       processor: "Apple A18 Bionic",
       ram: "8GB RAM",
@@ -1179,7 +1179,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(79999),
     trending: { viewsToday: 2500, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&q=80&fm=webp",
     rating: 4.9,
     isRecommended: true,
     priceRange: "30k+",
@@ -1193,7 +1193,7 @@ export const PHONES_DATA: Phone[] = [
     flipkartPrice: 0,
     originalPrice: 0,
     comingSoon: true,
-    expectedLaunch: "Aug 2026",
+    expectedLaunch: "Already Launched - Aug 2025",
     specs: {
       processor: "Google Tensor G4",
       ram: "12GB RAM",
@@ -1212,7 +1212,7 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(74999),
     trending: { viewsToday: 2500, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80&fm=webp",
     rating: 4.8,
     isRecommended: true,
     priceRange: "30k+",
@@ -1226,7 +1226,7 @@ export const PHONES_DATA: Phone[] = [
     flipkartPrice: 0,
     originalPrice: 0,
     comingSoon: true,
-    expectedLaunch: "Q3 2026",
+    expectedLaunch: "Expected Q2 2026",
     specs: {
       processor: "Snapdragon 7s Gen 3",
       ram: "12GB RAM",
@@ -1245,12 +1245,78 @@ export const PHONES_DATA: Phone[] = [
     priceHistory: generatePriceHistory(49999),
     trending: { viewsToday: 2500, isNewLaunch: true, priceTrend: "stable" },
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&q=80&fm=webp",
     rating: 4.7,
     isRecommended: true,
     priceRange: "30k+",
   },
+  {
+    id: "oneplus-13t",
+    name: "OnePlus 13T",
+    price: "~₹55,000",
+    priceValue: 55000,
+    amazonPrice: 55000,
+    flipkartPrice: 55000,
+    originalPrice: 55000,
+    specs: {
+      ram: "12GB RAM",
+      camera: "50MP Triple Camera",
+      battery: "6100mAh",
+      display: '6.78" AMOLED 120Hz',
+      processor: "Snapdragon 8s Elite",
+    },
+    expertScore: 8.8,
+    subScores: {
+      design: 9.0,
+      camera: 8.5,
+      battery: 9.0,
+      performance: 8.8,
+      valueForMoney: 8.5,
+    },
+    priceHistory: generatePriceHistory(55000),
+    trending: { viewsToday: 5200, isNewLaunch: true, priceTrend: "stable" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80&fm=webp",
+    rating: 4.6,
+    isRecommended: true,
+    priceRange: "30k+",
+    comingSoon: true,
+    expectedLaunch: "Expected May 2026",
+  },
+  {
+    id: "asus-rog-phone-9",
+    name: "ASUS ROG Phone 9",
+    price: "~₹89,999",
+    priceValue: 89999,
+    amazonPrice: 89999,
+    flipkartPrice: 89999,
+    originalPrice: 89999,
+    specs: {
+      ram: "16GB RAM",
+      camera: "50MP Camera",
+      battery: "5800mAh",
+      display: '6.78" AMOLED 165Hz',
+      processor: "Snapdragon 8 Elite",
+    },
+    expertScore: 9.2,
+    subScores: {
+      design: 9.5,
+      camera: 8.5,
+      battery: 9.0,
+      performance: 9.8,
+      valueForMoney: 8.0,
+    },
+    priceHistory: generatePriceHistory(89999),
+    trending: { viewsToday: 3800, isNewLaunch: true, priceTrend: "stable" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=400&q=80&fm=webp",
+    rating: 4.7,
+    isRecommended: true,
+    priceRange: "30k+",
+    comingSoon: true,
+    expectedLaunch: "Expected April 2026",
+  },
 ];
 
 export const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&fm=webp";

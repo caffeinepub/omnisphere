@@ -18,6 +18,7 @@ import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { HireUsPage } from "./pages/HireUsPage";
 import { HomePage } from "./pages/HomePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { WishlistPage } from "./pages/WishlistPage";
 
@@ -90,6 +91,12 @@ const adminRoute = createRoute({
   component: AdminPage,
 });
 
+const notFoundRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "*",
+  component: NotFoundPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   articleRoute,
@@ -99,6 +106,7 @@ const routeTree = rootRoute.addChildren([
   privacyRoute,
   hireUsRoute,
   adminRoute,
+  notFoundRoute,
 ]);
 
 const hashHistory = createHashHistory();

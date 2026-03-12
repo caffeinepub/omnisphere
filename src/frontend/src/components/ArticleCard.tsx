@@ -3,7 +3,7 @@ import { Calendar, Clock, User } from "lucide-react";
 import { CATEGORY_COLOR_MAP, type Post } from "../data/posts";
 
 const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80";
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80&fm=webp";
 
 interface ArticleCardProps {
   post: Post;

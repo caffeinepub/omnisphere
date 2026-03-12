@@ -12,7 +12,7 @@ export const T = {
     hero_title2: "Mein",
     hero_tagline: "India ka Best Hinglish Tech Blog",
     hero_desc:
-      "Smartphones, Laptops, Reviews aur bahut kuch — simple Hinglish mein, jo sabko samajh aaye.",
+      "Your go-to Hinglish tech blog for smartphone reviews, gadget reviews, laptop comparisons, and the best deals in India.",
     hero_cta: "Latest Articles",
     hero_about: "About Us",
     featured_title: "Featured Posts",

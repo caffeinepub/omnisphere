@@ -30,7 +30,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-10",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80",
+      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80&fm=webp",
     excerpt:
       "₹20,000 ke andar 5G phone dhundh rahe ho? 2026 mein ye 7 options best value, performance aur future-ready connectivity dete hain.",
     tags: ["5G Phones", "Budget 5G", "Under 20000", "2026"],
@@ -97,7 +97,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-08",
     readingTimeMinutes: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800&q=80&fm=webp",
     excerpt:
       "OnePlus 12R aur Poco F6 Pro — dono Snapdragon 8 Gen 2 ke saath ₹40k ke andar best phones hain. Lekin winner kaun hai? Poora comparison yahan hai.",
     tags: ["OnePlus 12R", "Poco F6 Pro", "Comparison", "Mid-Range"],
@@ -146,7 +146,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-06",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&q=80&fm=webp",
     excerpt:
       "Nothing Phone 2a ka unique transparent design aur Glyph Interface isko crowd mein alag banata hai. Kya ye ₹23,999 mein best midrange phone hai?",
     tags: ["Nothing Phone", "Review", "Midrange", "Design"],
@@ -185,7 +185,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-04",
     readingTimeMinutes: 9,
     imageUrl:
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80&fm=webp",
     excerpt:
       "iPhone 15 vs Samsung Galaxy S24 — ₹70,000 range mein ye dono flagships hain. India mein kaun sa phone better value deta hai? Honest comparison.",
     tags: ["iPhone 15", "Samsung S24", "Flagship", "Comparison", "India"],
@@ -234,7 +234,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-01",
     readingTimeMinutes: 6,
     imageUrl:
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80&fm=webp",
     excerpt:
       "DSLR ke bina bhi pro quality photos lo apne smartphone se! 2026 ke best camera phones aur photography tips jo aapki Instagram game badal denge.",
     tags: ["Photography", "Tips", "Camera", "Smartphone"],
@@ -288,7 +288,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-25",
     readingTimeMinutes: 5,
     imageUrl:
-      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&fm=webp",
     excerpt:
       "Phone ki battery jaldi khatam ho jaati hai? Ye 10 proven tips follow karo aur apni battery life double kar lo — kisi bhi Android ya iPhone par.",
     tags: ["Battery Tips", "Android", "iPhone", "Optimization"],
@@ -341,7 +341,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-20",
     readingTimeMinutes: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80",
+      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80&fm=webp",
     excerpt:
       "BGMI, Free Fire, Genshin Impact — India mein mobile gaming boom aa gaya hai. 2026 mein best gaming phones kaun se hain har budget mein?",
     tags: ["Gaming Phone", "BGMI", "India", "2026", "Buying Guide"],
@@ -403,7 +403,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-15",
     readingTimeMinutes: 9,
     imageUrl:
-      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&q=80",
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&q=80&fm=webp",
     excerpt:
       "Samsung Galaxy S24 Ultra India ka most popular ultra-premium phone hai. S Pen, Galaxy AI, 200MP camera — kya ye ₹1,30,000 worth it hai?",
     tags: ["Samsung S24 Ultra", "Review", "Flagship", "S Pen", "Galaxy AI"],
@@ -464,7 +464,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-10",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
     excerpt:
       "Android 15 aur iOS 18 dono mein massive updates aaye hain. 2026 mein kaun sa mobile OS better hai? Features, privacy, customization, aur ecosystem comparison.",
     tags: ["Android 15", "iOS 18", "Comparison", "Mobile OS", "2026"],
@@ -519,7 +519,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-05",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80",
+      "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80&fm=webp",
     excerpt:
       "Redmi Note 13 Pro+ India mein 200MP camera ke saath dhoom macha raha hai. ₹26,999 mein 200MP camera worth it hai? OmniSphere ka honest review.",
     tags: ["Redmi Note 13 Pro+", "200MP Camera", "Review", "Xiaomi"],
@@ -566,7 +566,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-30",
     readingTimeMinutes: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&fm=webp",
     excerpt:
       "College students ke liye best laptops under ₹50,000 in 2026 — coding, design, everyday use ke liye top 5 picks with pros, cons, aur buying guide.",
     tags: ["Laptop", "Students", "Under 50000", "2026", "Buying Guide"],
@@ -618,7 +618,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-25",
     readingTimeMinutes: 6,
     imageUrl:
-      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80",
+      "https://images.unsplash.com/photo-1553179459-4514c0f52f42?w=400&q=80&fm=webp",
     excerpt:
       "Motorola Edge 50 Pro ₹31,999 mein most beautiful phone hai. pOLED 144Hz display, Snapdragon 7 Gen 3, wireless charging — kya ye worth it hai?",
     tags: ["Motorola Edge 50 Pro", "Review", "Design", "Midrange"],
@@ -663,7 +663,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-12",
     readingTimeMinutes: 6,
     imageUrl:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fm=webp",
     excerpt:
       "Is hafte India mein kya hua tech duniya mein? Naye mobile launches, laptop updates, AI news, gaming updates, aur best deals — sab kuch ek jagah Hinglish mein.",
     tags: ["Tech Week", "Weekly Update", "India Tech News", "2026"],
@@ -763,7 +763,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-12",
     readingTimeMinutes: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
     excerpt:
       "\u20b915,000 ke andar best smartphones 2026 mein? Haan possible hai! Redmi Note 13, Realme Narzo 70, Samsung M15 5G \u2014 top 5 picks jo performance, camera aur battery mein best hain.",
     tags: [
@@ -938,7 +938,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-15",
     readingTimeMinutes: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
     excerpt:
       "iPhone 15 Pro Max ek premium flagship hai — par kya iska daam justify hota hai? Hum iske camera, performance, aur battery life ka ek honest Hinglish review lekar aaye hain.",
     tags: ["iPhone", "Apple", "Flagship", "Review"],
@@ -975,7 +975,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-02-10",
     readingTimeMinutes: 10,
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
     excerpt:
       "Android vs iOS ki ye eternal jang aaj bhi jaari hai. Samsung Galaxy S24 Ultra aur iPhone 15 Pro — dono premium flagships hain. Lekin winner kaun hai?",
     tags: ["Samsung", "iPhone", "Comparison", "Flagship"],
@@ -1003,7 +1003,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-28",
     readingTimeMinutes: 6,
     imageUrl:
-      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&fm=webp",
     excerpt:
       "OnePlus 12 ek powerful phone hai, par iske saare features use karna seedha nahi hai. Yahan hain 10 hidden tips jo aapke experience ko next level par le jayenge.",
     tags: ["OnePlus", "Tips", "Tricks", "Android"],
@@ -1037,7 +1037,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-20",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
     excerpt:
       "₹15,000 ke andar best smartphones 2026 mein? Haan possible hai! Ye list aapko sabse value-for-money phones batayegi.",
     tags: ["Budget", "Phones", "Buying Guide", "2026"],
@@ -1065,7 +1065,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-15",
     readingTimeMinutes: 9,
     imageUrl:
-      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80",
+      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80&fm=webp",
     excerpt:
       "Mobile gaming ke liye best phone kaun sa hai? ASUS ROG Phone 8 aur Poco F6 Pro dono gaming ke liye bane hain — par kaun jeeta?",
     tags: ["Gaming", "ASUS ROG", "Poco", "Comparison"],
@@ -1090,7 +1090,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-01-08",
     readingTimeMinutes: 12,
     imageUrl:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&fm=webp",
     excerpt:
       "College student ho ya professional — 2026 mein laptop kharidna confusing ho sakta hai. Is guide mein best laptops batayenge budget ke hisab se.",
     tags: ["Laptops", "Buying Guide", "Students", "2026"],
@@ -1118,7 +1118,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-10",
     readingTimeMinutes: 8,
     imageUrl:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&fm=webp",
     excerpt:
       "₹40,000 ke andar best laptop kaun sa hai 2026 mein? Students aur professionals ke liye top 5 options Hinglish mein.",
     tags: ["Laptops", "Budget", "2026", "Buying Guide"],
@@ -1157,7 +1157,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-11",
     readingTimeMinutes: 5,
     imageUrl:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
     excerpt:
       "2026 mein India mein kaunse smartphones launch hone wale hain? iPhone 16, Samsung Galaxy S25, OnePlus 13 — sab ki details Hinglish mein.",
     tags: ["Upcoming", "Phones", "2026", "India"],
@@ -1191,7 +1191,7 @@ export const STATIC_POSTS: Post[] = [
     publishedAt: "2026-03-09",
     readingTimeMinutes: 7,
     imageUrl:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&fm=webp",
     excerpt:
       "College students ke liye best laptop kaun sa hai? Budget-friendly se premium tak, sab options Hinglish mein 2026 guide.",
     tags: ["Laptops", "Students", "College", "2026"],
@@ -1212,6 +1212,253 @@ export const STATIC_POSTS: Post[] = [
 
 <h2>Final Verdict</h2>
 <p>Tight budget: Lenovo IdeaPad Slim 3. Balance of features: ASUS VivoBook 16X. Long-term investment: MacBook Air M3. Apni zaroorat aur budget ke hisaab se choose karo!</p>`,
+  },
+  {
+    id: 24,
+    title:
+      "Samsung Galaxy S25 Ultra vs iPhone 16 Pro Max — Kaun Jeet Raha Hai? (2026)",
+    slug: "samsung-s25-ultra-vs-iphone-16-pro-max-2026",
+    category: "Comparisons",
+    author: "Priya Verma",
+    publishedAt: "2026-03-10",
+    readingTimeMinutes: 9,
+    imageUrl:
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=80&fm=webp",
+    excerpt:
+      "Samsung Galaxy S25 Ultra aur iPhone 16 Pro Max — 2026 ke do biggest flagships ka ultimate showdown. Camera, performance, battery — kaun better hai?",
+    tags: [
+      "Samsung S25 Ultra",
+      "iPhone 16 Pro Max",
+      "Flagship Comparison",
+      "2026",
+    ],
+    content: `<p><strong>2026 ka sabse bada sawaal:</strong> Samsung Galaxy S25 Ultra khareedein ya iPhone 16 Pro Max? Dono duniya ke best flagship phones hain — lekin aapke liye kaun sahi hai? Aao detail mein samjhein.</p>
+
+<h2>Display — Screen Ka Muqabala</h2>
+<p>Samsung Galaxy S25 Ultra mein hai <strong>6.9" Dynamic LTPO AMOLED 2X, 3088x1440 resolution, 120Hz adaptive</strong> display jo sunlight mein bhi crystal clear dikhta hai. Peak brightness 2600 nits tak jaati hai.</p>
+<p>iPhone 16 Pro Max mein <strong>6.9" Super Retina XDR ProMotion OLED, 2868x1320, 1-120Hz adaptive</strong> display hai. Apple ka True Tone aur always-on display experience premium feel deta hai.</p>
+<ul>
+  <li>Samsung: Higher resolution, brighter panel, S Pen included</li>
+  <li>iPhone: Better color accuracy, ProMotion smoother in daily use</li>
+  <li><strong>Winner: Tie</strong> — dono exceptional hain</li>
+</ul>
+
+<h2>Camera Battle — 200MP vs 48MP ProRAW</h2>
+<p>Samsung S25 Ultra mein <strong>200MP main + 50MP ultrawide + 10MP 3x + 50MP 5x</strong> quad camera setup hai. 100x Space Zoom wapas aa gaya hai aur AI Scene Optimizer ab bahut smarter hai.</p>
+<p>iPhone 16 Pro Max mein <strong>48MP main + 48MP ultrawide + 12MP 5x telephoto</strong> ka triple system hai. Apple ka <strong>ProRAW aur ProRes video recording</strong> professional photographers ka dream hai.</p>
+<ul>
+  <li>Zoom photography: Samsung wins with 5x + 100x Space Zoom</li>
+  <li>Video quality: iPhone wins — ProRes 4K120fps unbeatable</li>
+  <li>Low light: Neck and neck, Samsung thoda sharper, iPhone more natural</li>
+  <li>Selfie: iPhone 16 Pro Max ki TrueDepth camera better portraits deti hai</li>
+</ul>
+
+<h2>Performance — Snapdragon 8 Elite vs A18 Pro</h2>
+<p><strong>Snapdragon 8 Elite</strong> (S25 Ultra) 4nm process par bana hai — gaming aur multitasking mein beast hai. 12GB RAM ke saath no lag, no stutter.</p>
+<p><strong>Apple A18 Pro</strong> (iPhone 16 Pro Max) abhi bhi world's fastest mobile chip hai. Single-core aur neural engine tasks mein Snapdragon ko peeche chhod deta hai.</p>
+<ul>
+  <li>Raw speed: Apple A18 Pro wins by a margin</li>
+  <li>Gaming: Snapdragon 8 Elite Android gaming mein better optimized</li>
+  <li>AI features: Both excellent — Samsung Galaxy AI vs Apple Intelligence</li>
+</ul>
+
+<h2>Battery Life</h2>
+<p>S25 Ultra mein <strong>5000mAh battery, 45W wired + 15W wireless charging</strong> hai. iPhone 16 Pro Max mein <strong>4685mAh, 27W MagSafe + 15W wireless</strong>.</p>
+<p>Real world testing mein dono 1.5 days easily last karte hain heavy use par. Samsung ki battery thodi zyada badi hai but iPhone better optimization se compensate karta hai.</p>
+
+<h2>Price in India (March 2026)</h2>
+<ul>
+  <li><strong>Samsung Galaxy S25 Ultra:</strong> ₹1,29,999 se shuru (256GB)</li>
+  <li><strong>iPhone 16 Pro Max:</strong> ₹1,34,900 se shuru (256GB)</li>
+</ul>
+
+<h2>Final Verdict — Kaun Lein?</h2>
+<p><strong>Samsung Galaxy S25 Ultra lein agar:</strong> S Pen chahiye, zoom photography pasand hai, Android ecosystem prefer karte hain, ya Samsung DeX use karte hain.</p>
+<p><strong>iPhone 16 Pro Max lein agar:</strong> Already Apple ecosystem mein hain (Mac, iPad), professional video chahiye, ya simply best iOS experience chahiye.</p>
+<p><strong>OmniSphere Pick:</strong> Photography aur versatility ke liye Samsung S25 Ultra, ecosystem integration aur video ke liye iPhone 16 Pro Max. Dono ₹1.3 lakh+ hain — budget taut ho toh OnePlus 13 ya Samsung S24+ consider karo!</p>`,
+  },
+  {
+    id: 25,
+    title: "OnePlus 13 Review — Ek Saal Baad Bhi Best Value Flagship? (2026)",
+    slug: "oneplus-13-review-2026",
+    category: "Reviews",
+    author: "Rahul Sharma",
+    publishedAt: "2026-03-08",
+    readingTimeMinutes: 8,
+    imageUrl:
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80&fm=webp",
+    excerpt:
+      "OnePlus 13 India mein ₹69,999 mein available hai. Kya ye Snapdragon 8 Elite, Hasselblad cameras aur 6000mAh battery ke saath best buy hai?",
+    tags: ["OnePlus 13", "Review", "Flagship", "2026"],
+    content: `<p><strong>Short Answer:</strong> Haan, OnePlus 13 abhi bhi March 2026 mein best value flagship hai India mein. ₹69,999 ki price par jo kuch milta hai — wo ₹1.3 lakh waale phones se barely peeche hai.</p>
+
+<h2>Design & Build Quality</h2>
+<p>OnePlus 13 ka design timeless hai — <strong>Silky Black aur Arctic Dawn</strong> color options mein, Gorilla Glass Victus 2 front aur back, IP68 dust/water resistance. 6.82" screen ke bawajood hand mein comfortable feel hota hai.</p>
+<ul>
+  <li>IP68 rating — pani mein 1.5m tak 30 minutes safe</li>
+  <li>Alert slider wapas aaya — fans khush!</li>
+  <li>210g weight — thoda heavy but premium feel</li>
+</ul>
+
+<h2>Display</h2>
+<p><strong>6.82" LTPO 4.1 AMOLED, QHD+ 3168x1440, 1-120Hz</strong> — ye screen dekhkar aankhen khush ho jaati hain. Peak brightness 4500 nits. Sunlight visibility excellent. Always-On Display battery drain nahi karta.</p>
+
+<h2>Performance — Snapdragon 8 Elite</h2>
+<p>Snapdragon 8 Elite chipset ke saath OnePlus 13 kisi bhi Android phone se peeche nahi hai. <strong>16GB LPDDR5X RAM + 512GB UFS 4.0 storage</strong> default configuration mein milta hai.</p>
+<p>BGMI, Genshin Impact, Asphalt 12 — sab ultra settings par silky smooth. RAM se leke CPU tak — peak performance.</p>
+
+<h2>Camera — Hasselblad Collaboration</h2>
+<ul>
+  <li><strong>Main:</strong> 50MP Sony LYT-808, f/1.6, OIS</li>
+  <li><strong>Ultrawide:</strong> 50MP, 120° FOV</li>
+  <li><strong>Telephoto:</strong> 50MP, 3x optical zoom, OIS</li>
+</ul>
+<p>Hasselblad Natural Color Calibration photos ko realistic banata hai. Low light performance excellent hai — Sony sensor ka kamal. Video bhi 4K 60fps smooth hai.</p>
+
+<h2>Battery — 6000mAh Beast</h2>
+<p><strong>6000mAh battery + 100W SUPERVOOC wired + 50W AIRVOOC wireless.</strong> Real world mein 1.5-2 din easily. 100W se 0 se 100% sirf 26 minutes! Wireless charging bhi fast — 50W par ~45 minutes full.</p>
+
+<h2>OxygenOS 15</h2>
+<p>Android 15 based OxygenOS 15 clean, fast aur feature-rich hai. OnePlus AI tools include hain — AI Notes, AI Reply, AI Summary. 4 saal OS updates + 5 saal security patches ka vaada hai.</p>
+
+<h2>Pros & Cons</h2>
+<ul>
+  <li>✅ Best in class battery + charging speed</li>
+  <li>✅ Hasselblad camera system</li>
+  <li>✅ Snapdragon 8 Elite performance</li>
+  <li>✅ Alert slider</li>
+  <li>✅ IP68 rating</li>
+  <li>❌ No microSD card slot</li>
+  <li>❌ Satellite connectivity nahi</li>
+  <li>❌ 210g — heavy for some users</li>
+</ul>
+
+<h2>Verdict — Khareedna Chahiye?</h2>
+<p><strong>Bilkul!</strong> OnePlus 13 ₹69,999 par India ka best value flagship hai. iPhone 16 aur Samsung S25 se ₹60,000 sasta hai aur performance mein barely peeche. Agar aap ₹70k budget mein best Android experience chahte hain — OnePlus 13 final answer hai.</p>
+<p><strong>OmniSphere Rating: 9.2/10</strong></p>`,
+  },
+  {
+    id: 26,
+    title: "Best Budget 5G Laptops India 2026 — ₹50,000 Tak Top 5 Picks",
+    slug: "best-budget-5g-laptops-india-2026",
+    category: "Laptops",
+    author: "Ankit Kumar",
+    publishedAt: "2026-03-05",
+    readingTimeMinutes: 7,
+    imageUrl:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&fm=webp",
+    excerpt:
+      "2026 mein ₹50,000 tak best laptops — students aur professionals dono ke liye. AMD Ryzen aur Intel Core Ultra processors ke saath fastest options.",
+    tags: ["Budget Laptops", "5G Laptops", "Under 50000", "2026"],
+    content: `<p><strong>Short Answer:</strong> ₹50,000 tak 2026 ke best laptops hain — Lenovo IdeaPad Slim 5 Gen 10, ASUS VivoBook 16, HP Laptop 15, Acer Aspire 5 2026, aur Dell Inspiron 15 3535.</p>
+
+<h2>Kya Dekhein ₹50k Budget Mein?</h2>
+<p>2026 mein ₹50,000 mein bahut kuch milta hai — 12th/13th Gen Intel ya AMD Ryzen 7000 series, 16GB RAM, 512GB SSD, aur FHD display. Gaming ke liye nahi, lekin students, WFH professionals, aur everyday users ke liye perfect hain.</p>
+
+<h2>Top 5 Budget Laptops Under ₹50,000 in India 2026</h2>
+
+<h3>1. Lenovo IdeaPad Slim 5 Gen 10 — ₹42,990</h3>
+<p>AMD Ryzen 7 8845U + 16GB RAM + 512GB SSD ka deadly combination. 2026 ka best value laptop under ₹45k.</p>
+<ul>
+  <li>AMD Ryzen 7 8845U — AI-capable processor</li>
+  <li>15.6" FHD IPS anti-glare display</li>
+  <li>16GB DDR5 RAM</li>
+  <li>All day battery — ~10 hours</li>
+  <li>1.62kg — light aur portable</li>
+</ul>
+
+<h3>2. ASUS VivoBook 16 — ₹44,990</h3>
+<p>16" screen wala laptop ₹45k mein. Content consumption aur light editing ke liye perfect.</p>
+<ul>
+  <li>Intel Core i5-1335U / Ryzen 5 7530U</li>
+  <li>16" FHD+ display — great for multitasking</li>
+  <li>8GB RAM (upgradeable to 16GB)</li>
+  <li>512GB NVMe SSD</li>
+</ul>
+
+<h3>3. HP Laptop 15s — ₹38,990</h3>
+<p>HP ki reliable build quality + AMD Ryzen 5 7520U. Basic tasks aur online classes ke liye solid choice.</p>
+<ul>
+  <li>AMD Ryzen 5 7520U</li>
+  <li>15.6" FHD Anti-Glare</li>
+  <li>8GB RAM, 512GB SSD</li>
+  <li>HP Fast Charge — 50% mein 45 minutes</li>
+</ul>
+
+<h3>4. Acer Aspire 5 2026 — ₹46,999</h3>
+<p>Intel Core i5 13th Gen + 512GB SSD — daily use aur light coding ke liye best.</p>
+<ul>
+  <li>Intel Core i5-1335U</li>
+  <li>8GB DDR4 RAM (upgradeable)</li>
+  <li>15.6" FHD IPS display</li>
+  <li>Thunderbolt 4 port included</li>
+</ul>
+
+<h3>5. Dell Inspiron 15 3535 — ₹48,990</h3>
+<p>Dell ki reliable brand + AMD Ryzen 7 7730U. Best display quality under ₹50k.</p>
+<ul>
+  <li>AMD Ryzen 7 7730U</li>
+  <li>16GB RAM</li>
+  <li>15.6" FHD WVA display — wide viewing angles</li>
+  <li>Dell ki 1 year premium support</li>
+</ul>
+
+<h2>Buying Tips</h2>
+<ul>
+  <li>Minimum 16GB RAM lene ki koshish karo — 8GB 2026 mein kam padta hai</li>
+  <li>SSD zaroor lein — HDD wale models avoid karo</li>
+  <li>AMD Ryzen 7000 series Intel ke barabar ya better hai ₹50k mein</li>
+  <li>Warranty check karo — Dell aur HP ki service centers India mein zyada hain</li>
+</ul>
+
+<h2>Verdict</h2>
+<p>Overall best pick hai <strong>Lenovo IdeaPad Slim 5 Gen 10</strong> — AMD Ryzen 7, 16GB RAM, lightweight build. Students ke liye <strong>HP 15s</strong> budget-friendly option hai. OmniSphere par aur laptop reviews check karo!</p>`,
+  },
+  {
+    id: 27,
+    title: "Tech Week — March 2026: India Ki Sabse Badi Tech News Is Hafte",
+    slug: "tech-week-march-2026",
+    category: "News",
+    author: "OmniSphere Team",
+    publishedAt: "2026-03-12",
+    readingTimeMinutes: 5,
+    imageUrl:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fm=webp",
+    excerpt:
+      "Is hafte ki top tech news: Samsung S25 India pricing, Jio 5G expansion, OnePlus 13T launch rumors, aur ASUS ROG Phone 9 announcement.",
+    tags: ["Tech Week", "News", "India Tech", "March 2026"],
+    content: `<p><strong>March 12, 2026 — Is hafte India tech scene mein kaafi kuch interesting hua. OmniSphere la raha hai aapke liye top 6 tech news ek jagah!</strong></p>
+
+<h2>1. Samsung Galaxy S25 Ultra India Price Confirm Hua</h2>
+<p>Samsung ne officially India mein Galaxy S25 Ultra ki pricing confirm kar di. <strong>₹1,29,999 se start</strong> hogi 256GB variant ke liye. S25+ ₹99,999 aur S25 ₹80,000 mein available hai. Titanium frame aur S Pen ke saath yeh definitely 2026 ka premium Android king hai.</p>
+<p><strong>Kab milega:</strong> Already available on Amazon India aur Samsung.com</p>
+
+<h2>2. Jio 5G Ab 1000+ Cities Mein!</h2>
+<p>Reliance Jio ne announce kiya ki unka True5G network ab <strong>1000 se zyada cities aur towns</strong> mein live hai. Speed tests mein 500Mbps-1Gbps speeds record ki gayi hain tier-1 cities mein. Airtel bhi quickly expand kar raha hai — India 5G revolution accelerate ho raha hai!</p>
+
+<h2>3. OnePlus 13T Launch Rumors — May 2026 Mein?</h2>
+<p>OnePlus 13T ke leaks saamne aaye hain. Expected specs:</p>
+<ul>
+  <li>Snapdragon 8s Elite chipset</li>
+  <li>6100mAh battery — 13 se bhi bada!</li>
+  <li>50MP triple camera</li>
+  <li>₹55,000 around pricing</li>
+  <li>Expected launch: May 2026</li>
+</ul>
+<p>Agar ye sach hua toh value flagship segment mein revolution aa sakti hai!</p>
+
+<h2>4. ASUS ROG Phone 9 — Gaming Phone of the Year?</h2>
+<p>ASUS ne ROG Phone 9 officially announce kar diya. <strong>Snapdragon 8 Elite, 6.78" 165Hz AMOLED, 5800mAh battery</strong> ke saath yeh gaming phone hai jo sab kuch karta hai. India launch April 2026 expected hai ₹89,999 price par.</p>
+
+<h2>5. Apple MacBook Air M4 — March ke End Mein India Mein!</h2>
+<p>Apple ne confirm kiya ki MacBook Air M4 <strong>March 2026 ke end mein India mein launch hoga</strong>. Expected price: ₹1,09,900 se start. M4 chip ke saath performance M3 se 30% faster hogi. Students aur professionals ke liye dream laptop!</p>
+
+<h2>6. Google Pixel 9a Leaks — Budget Pixel Coming!</h2>
+<p>Google Pixel 9a ke renders leak hue hain. <strong>Tensor G4 chip, 48MP camera, ₹50,000 around price</strong> expect karo. Q2 2026 mein launch expected hai — Pixel fans ke liye exciting news!</p>
+
+<h2>This Week's OmniSphere Hot Pick</h2>
+<p>Agar aap abhi kuch kharidne ka soch rahe hain toh <strong>OnePlus 13 at ₹69,999</strong> is hafte ka best deal hai — Snapdragon 8 Elite + 6000mAh + Hasselblad cameras. OmniSphere rating: 9.2/10.</p>
+<p><em>Agle hafte aur updates ke liye OmniSphere subscribe karo! 📧</em></p>`,
   },
 ];
 export const STATIC_CATEGORIES: Category[] = [

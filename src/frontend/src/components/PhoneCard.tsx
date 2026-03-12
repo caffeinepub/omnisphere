@@ -94,12 +94,13 @@ export function PhoneCard({
       data-ocid={`phone_card.item.${index}`}
       onClick={() => saveRecentlyViewed(phone.id)}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden aspect-[4/3]">
         <img
           src={phone.imageUrl}
           alt={phone.name}
           crossOrigin="anonymous"
-          className="w-full h-44 object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
           }}

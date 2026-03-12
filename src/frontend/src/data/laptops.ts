@@ -24,9 +24,9 @@ export interface Laptop {
 }
 
 const LAPTOP_FALLBACK =
-  "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80";
+  "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80&fm=webp";
 const GAMING_IMAGE =
-  "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=400&q=80";
+  "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=400&q=80&fm=webp";
 
 export const LAPTOPS_DATA: Laptop[] = [
   // Under ₹40k
@@ -371,7 +371,7 @@ export const LAPTOPS_DATA: Laptop[] = [
     originalPrice: 125000,
     priceRange: "70k+",
     comingSoon: true,
-    expectedLaunch: "Q2 2026",
+    expectedLaunch: "Expected March 2026",
     specs: {
       processor: "Apple M4",
       ram: "8GB RAM",
@@ -395,7 +395,7 @@ export const LAPTOPS_DATA: Laptop[] = [
     originalPrice: 65000,
     priceRange: "40k-70k",
     comingSoon: true,
-    expectedLaunch: "April 2026",
+    expectedLaunch: "Already Launched - Jan 2026",
     specs: {
       processor: "Intel Core Ultra 7",
       ram: "16GB RAM",
@@ -419,7 +419,7 @@ export const LAPTOPS_DATA: Laptop[] = [
     originalPrice: 120000,
     priceRange: "70k+",
     comingSoon: true,
-    expectedLaunch: "May 2026",
+    expectedLaunch: "Expected Q2 2026",
     specs: {
       processor: "Intel Core Ultra 9",
       ram: "32GB RAM",
@@ -443,7 +443,7 @@ export const LAPTOPS_DATA: Laptop[] = [
     originalPrice: 42000,
     priceRange: "under40k",
     comingSoon: true,
-    expectedLaunch: "March 2026",
+    expectedLaunch: "Expected Q2 2026",
     specs: {
       processor: "AMD Ryzen 7 8845U",
       ram: "16GB RAM",
@@ -467,7 +467,7 @@ export const LAPTOPS_DATA: Laptop[] = [
     originalPrice: 110000,
     priceRange: "70k+",
     comingSoon: true,
-    expectedLaunch: "Q2 2026",
+    expectedLaunch: "Already Launched - Late 2025",
     specs: {
       processor: "Intel Core Ultra 5",
       ram: "16GB RAM",
@@ -482,5 +482,55 @@ export const LAPTOPS_DATA: Laptop[] = [
     isRecommended: true,
     imageUrl: LAPTOP_FALLBACK,
     trending: { viewsToday: 2200, isNewLaunch: true },
+  },
+  {
+    id: "macbook-pro-m4",
+    name: "MacBook Pro M4",
+    price: "~₹1,69,900",
+    priceValue: 169900,
+    originalPrice: 169900,
+    priceRange: "70k+",
+    comingSoon: true,
+    expectedLaunch: "Already Launched - Nov 2024",
+    specs: {
+      processor: "Apple M4 Pro",
+      ram: "16GB Unified Memory",
+      storage: "512GB SSD",
+      display: '14.2" Liquid Retina XDR',
+      battery: "Up to 24 hours",
+      weight: "~1.61kg",
+      os: "macOS Sequoia",
+    },
+    expertScore: 9.5,
+    trending: { viewsToday: 4500, isNewLaunch: true },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&fm=webp",
+    rating: 4.9,
+    isRecommended: true,
+  },
+  {
+    id: "asus-rog-zephyrus-g16",
+    name: "ASUS ROG Zephyrus G16 2026",
+    price: "~₹1,89,990",
+    priceValue: 189990,
+    originalPrice: 189990,
+    priceRange: "70k+",
+    comingSoon: true,
+    expectedLaunch: "Expected April 2026",
+    specs: {
+      processor: "Intel Core Ultra 9 + RTX 4090",
+      ram: "32GB DDR5",
+      storage: "2TB NVMe SSD",
+      display: '16" QHD+ 240Hz OLED',
+      battery: "Up to 13 hours",
+      weight: "~1.85kg",
+      os: "Windows 11",
+    },
+    expertScore: 9.4,
+    trending: { viewsToday: 2800, isNewLaunch: true },
+    imageUrl:
+      "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80&fm=webp",
+    rating: 4.8,
+    isRecommended: true,
   },
 ];

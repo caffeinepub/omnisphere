@@ -3,7 +3,7 @@ import { Cpu, HardDrive, Monitor, Star } from "lucide-react";
 import type { Laptop } from "../data/laptops";
 
 const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80";
+  "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80&fm=webp";
 
 const STAR_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 
@@ -41,12 +41,13 @@ export function LaptopCard({ laptop, index = 1 }: LaptopCardProps) {
       className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
       data-ocid={`laptop_card.item.${index}`}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden aspect-[4/3]">
         <img
           src={laptop.imageUrl}
           alt={laptop.name}
           crossOrigin="anonymous"
-          className="w-full h-44 object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
           }}
