@@ -52,7 +52,7 @@ const VALUES = [
   {
     icon: <Users size={24} />,
     title: "Community First",
-    desc: "Hamare readers hi haari biggest asset hain. Community feedback se hi hum better bante hain.",
+    desc: "Hamare readers hi hamari biggest asset hain. Community feedback se hi hum better bante hain.",
   },
 ];
 
@@ -89,7 +89,7 @@ export function AboutPage() {
       {/* Mission */}
       <section className="mb-14">
         <h2 className="text-2xl font-bold mb-4 text-foreground">
-          Haara Mission
+          Hamara Mission
         </h2>
         <div className="p-6 bg-card rounded-xl border border-border border-l-4 border-l-primary">
           <p className="text-base text-card-foreground leading-relaxed">
@@ -108,7 +108,7 @@ export function AboutPage() {
       {/* Values */}
       <section className="mb-14">
         <h2 className="text-2xl font-bold mb-6 text-foreground">
-          Haare Values
+          Hamare Values
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {VALUES.map((val) => (
@@ -132,7 +132,7 @@ export function AboutPage() {
 
       {/* Team */}
       <section className="mb-14">
-        <h2 className="text-2xl font-bold mb-6 text-foreground">Haari Team</h2>
+        <h2 className="text-2xl font-bold mb-6 text-foreground">Hamari Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {TEAM.map((member) => (
             <div

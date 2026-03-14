@@ -87,6 +87,13 @@ export function Footer() {
                 About
               </Link>
               <Link
+                to="/contact"
+                className="text-sm text-background/70 hover:text-primary transition-colors"
+                data-ocid="footer.contact.link"
+              >
+                Contact Us
+              </Link>
+              <Link
                 to="/hire-us"
                 className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
                 data-ocid="footer.hire_us.link"
@@ -121,25 +128,63 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-background/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-background/50">
-            © {year} OmniSphere. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link
-              to="/hire-us"
-              data-ocid="footer.hire_us.link"
-              className="text-xs text-primary font-semibold hover:text-primary/80 transition-colors"
+        <div className="border-t border-background/10 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-background/50">
+              © {year} OmniSphere. All rights reserved.
+            </p>
+            <nav
+              className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
+              aria-label="Legal links"
             >
-              Hire Us
-            </Link>
-            <Link
-              to="/privacy-policy"
-              data-ocid="footer.privacy_policy.link"
-              className="text-xs text-background/50 hover:text-primary transition-colors"
-            >
-              Privacy Policy
-            </Link>
+              <Link
+                to="/about"
+                data-ocid="footer.about.link"
+                className="text-xs text-background/50 hover:text-primary transition-colors"
+              >
+                About Us
+              </Link>
+              <span className="text-background/20 hidden sm:inline">·</span>
+              <Link
+                to="/contact"
+                data-ocid="footer.contact.link"
+                className="text-xs text-background/50 hover:text-primary transition-colors"
+              >
+                Contact Us
+              </Link>
+              <span className="text-background/20 hidden sm:inline">·</span>
+              <Link
+                to="/privacy-policy"
+                data-ocid="footer.privacy_policy.link"
+                className="text-xs text-background/50 hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-background/20 hidden sm:inline">·</span>
+              <Link
+                to="/disclaimer"
+                data-ocid="footer.disclaimer.link"
+                className="text-xs text-background/50 hover:text-primary transition-colors"
+              >
+                Disclaimer
+              </Link>
+              <span className="text-background/20 hidden sm:inline">·</span>
+              <Link
+                to="/terms"
+                data-ocid="footer.terms.link"
+                className="text-xs text-background/50 hover:text-primary transition-colors"
+              >
+                Terms &amp; Conditions
+              </Link>
+              <span className="text-background/20 hidden sm:inline">·</span>
+              <Link
+                to="/hire-us"
+                data-ocid="footer.hire_us.link"
+                className="text-xs text-primary font-semibold hover:text-primary/80 transition-colors"
+              >
+                Hire Us
+              </Link>
+            </nav>
           </div>
         </div>
       </div>

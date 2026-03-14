@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import OmniSphereChatbot from "./components/OmniSphereChatbot";
 import { PhoneQuiz } from "./components/PhoneQuiz";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -16,11 +17,19 @@ import { AboutPage } from "./pages/AboutPage";
 import { AdminPage } from "./pages/AdminPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
+import { ContactUsPage } from "./pages/ContactUsPage";
+import { DisclaimerPage } from "./pages/DisclaimerPage";
 import { HireUsPage } from "./pages/HireUsPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
+import { TermsPage } from "./pages/TermsPage";
 import { WishlistPage } from "./pages/WishlistPage";
+
+// Fix: If no hash is present (e.g. opening draft link directly), default to #/
+if (!window.location.hash || window.location.hash === "#") {
+  window.location.hash = "#/";
+}
 
 // Root Layout
 function RootLayout() {
@@ -35,6 +44,7 @@ function RootLayout() {
         <Footer />
         <Toaster position="bottom-right" />
         <PhoneQuiz />
+        <OmniSphereChatbot />
       </div>
     </LanguageProvider>
   );
@@ -91,6 +101,24 @@ const adminRoute = createRoute({
   component: AdminPage,
 });
 
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/contact",
+  component: ContactUsPage,
+});
+
+const disclaimerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/disclaimer",
+  component: DisclaimerPage,
+});
+
+const termsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/terms",
+  component: TermsPage,
+});
+
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "*",
@@ -106,6 +134,9 @@ const routeTree = rootRoute.addChildren([
   privacyRoute,
   hireUsRoute,
   adminRoute,
+  contactRoute,
+  disclaimerRoute,
+  termsRoute,
   notFoundRoute,
 ]);
 

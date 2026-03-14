@@ -2,73 +2,259 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- Home -->
   <url>
-    <loc>https://omnisphere.tech/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://omnishpere.in/</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- About -->
   <url>
-    <loc>https://omnisphere.tech/#/about</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://omnishpere.in/about</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
 
+  <!-- Privacy Policy -->
   <url>
-    <loc>https://omnisphere.tech/#/category/phones</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://omnishpere.in/privacy-policy</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
+  <!-- Hire Us -->
   <url>
-    <loc>https://omnisphere.tech/#/category/laptops</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://omnisphere.tech/#/category/reviews</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://omnisphere.tech/#/category/gaming</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://omnishpere.in/hire-us</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Category: Reviews -->
   <url>
-    <loc>https://omnisphere.tech/#/category/tips</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://omnishpere.in/category/reviews</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
+  <!-- Category: Tips & Tricks -->
   <url>
-    <loc>https://omnisphere.tech/#/article/best-gaming-laptops-india-2024</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://omnishpere.in/category/tips</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Category: Comparisons -->
+  <url>
+    <loc>https://omnishpere.in/category/comparisons</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Category: Gaming -->
+  <url>
+    <loc>https://omnishpere.in/category/gaming</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Category: Phones -->
+  <url>
+    <loc>https://omnishpere.in/category/phones</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Category: Laptops -->
+  <url>
+    <loc>https://omnishpere.in/category/laptops</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://omnishpere.in/article/best-gaming-laptops-india-2024</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://omnisphere.tech/#/article/iphone-vs-android-india</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://omnishpere.in/article/iphone-vs-android-india</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://omnisphere.tech/#/article/laptop-buying-guide-india</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://omnishpere.in/article/laptop-buying-guide-india</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/battery-tips-smartphones-india</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/best-smartphones-under-15000-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/tech-week-india-news</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/best-5g-phones-under-20000</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/oneplus-12r-vs-poco-f6-pro</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/nothing-phone-2a-review</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/iphone-15-vs-samsung-s24</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/mobile-photography-tips-hindi</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/battery-life-tips-tricks</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/best-gaming-phones-india-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/samsung-s24-ultra-review</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/android-15-vs-ios-18</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/redmi-note-13-pro-plus-review</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/best-laptops-under-50000</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/motorola-edge-50-pro-review</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/best-laptops-under-40000-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/upcoming-smartphones-india-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/best-student-laptops-india-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/s25-ultra-vs-iphone-16-pro-max</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/oneplus-13-review</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/budget-laptops-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://omnishpere.in/article/tech-week-march-2026</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 

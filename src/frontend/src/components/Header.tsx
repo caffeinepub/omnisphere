@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Heart, Menu, Mic, Moon, Search, Sun, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { toast } from "sonner";
 import { useLanguage } from "../context/LanguageContext";
 import { PHONES_DATA } from "../data/phones";
 import { useTheme } from "../hooks/useTheme";
@@ -151,38 +150,69 @@ export function Header() {
 
   const results = getResults();
 
+  const navigateToPhone = (phoneId: string | undefined) => {
+    const phone = PHONES_DATA.find((p) => p.id === phoneId);
+    if (phone?.reviewSlug) {
+      navigate({ to: "/article/$slug", params: { slug: phone.reviewSlug } });
+    } else {
+      navigate({ to: "/category/$slug", params: { slug: "reviews" } });
+    }
+  };
+
   const handleSelect = (result: SearchResult) => {
     saveRecentSearch(result.label);
     setDropdownOpen(false);
     setSearchQuery("");
+    setSearchOpen(false);
     if (result.type === "phone") {
-      const phone = PHONES_DATA.find((p) => p.id === result.id);
-      if (phone) toast.info(`Opening ${phone.name}...`);
+      navigateToPhone(result.id);
     } else if (result.type === "category") {
       navigate({
         to: "/category/$slug",
         params: { slug: result.label.toLowerCase() },
       });
     } else {
+      // For recent/popular, set the query and re-search
       setSearchQuery(result.label);
       setDropdownOpen(true);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!dropdownOpen) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
+      if (!dropdownOpen) setDropdownOpen(true);
       setActiveIndex((prev) => Math.min(prev + 1, results.length - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIndex((prev) => Math.max(prev - 1, -1));
     } else if (e.key === "Enter") {
+      e.preventDefault();
       if (activeIndex >= 0 && results[activeIndex]) {
         handleSelect(results[activeIndex]);
+      } else if (searchQuery.trim()) {
+        // No item highlighted — navigate based on query results
+        setDropdownOpen(false);
+        setSearchQuery("");
+        setSearchOpen(false);
+        const phoneResult = results.find((r) => r.type === "phone");
+        if (phoneResult) {
+          navigateToPhone(phoneResult.id);
+        } else {
+          const catResult = results.find((r) => r.type === "category");
+          if (catResult) {
+            navigate({
+              to: "/category/$slug",
+              params: { slug: catResult.label.toLowerCase() },
+            });
+          } else {
+            navigate({ to: "/category/$slug", params: { slug: "reviews" } });
+          }
+        }
       }
     } else if (e.key === "Escape") {
       setDropdownOpen(false);
+      setSearchOpen(false);
     }
   };
 
@@ -191,7 +221,6 @@ export function Header() {
       (window as any).SpeechRecognition ||
       (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      toast.error("Voice search not supported in this browser");
       return;
     }
     const recognition = new SpeechRecognition();
@@ -201,9 +230,8 @@ export function Header() {
       setSearchQuery(transcript);
       setDropdownOpen(true);
     };
-    recognition.onerror = () => toast.error("Voice search failed");
+    recognition.onerror = () => {};
     recognition.start();
-    toast.info("\ud83c\udfa4 Listening...");
   };
 
   const typeIcon = (type: SearchResult["type"]) => {
@@ -410,6 +438,7 @@ export function Header() {
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 setDropdownOpen(true);
+                setActiveIndex(-1);
               }}
               onFocus={() => setDropdownOpen(true)}
               onKeyDown={handleKeyDown}
