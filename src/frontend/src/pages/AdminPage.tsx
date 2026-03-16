@@ -11,8 +11,17 @@ import {
 } from "@/components/ui/table";
 import { useActor } from "@/hooks/useActor";
 import { useQuery } from "@tanstack/react-query";
-import { Inbox, Loader2, Lock, Mail, RefreshCw, Users } from "lucide-react";
-import { useState } from "react";
+import {
+  CheckCircle,
+  Inbox,
+  Key,
+  Loader2,
+  Lock,
+  Mail,
+  RefreshCw,
+  Users,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ADMIN_PASSWORD = "omnisphere@2026";
 
@@ -20,6 +29,12 @@ export function AdminPage() {
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
+
+  // API Key state
+  const [apiKeyMasked, setApiKeyMasked] = useState("");
+  const [apiKeyInput, setApiKeyInput] = useState("");
+  const [apiKeySaved, setApiKeySaved] = useState(false);
+  const [apiKeyLoading, setApiKeyLoading] = useState(false);
 
   const { actor, isFetching } = useActor();
 
@@ -39,6 +54,19 @@ export function AdminPage() {
 
   const loading = isLoading || (isFetching && subscribers.length === 0);
 
+  // Load API key status from backend after authentication
+  useEffect(() => {
+    if (!isAuthenticated || !actor || isFetching) return;
+    (async () => {
+      try {
+        const status: string = await (actor as any).getClaudeApiKeyStatus();
+        setApiKeyMasked(status || "");
+      } catch {
+        // backend method may not exist yet
+      }
+    })();
+  }, [isAuthenticated, actor, isFetching]);
+
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
@@ -46,6 +74,38 @@ export function AdminPage() {
       setError("");
     } else {
       setError("Galat password! Dobara try karo.");
+    }
+  }
+
+  async function handleSaveApiKey() {
+    const key = apiKeyInput.trim();
+    if (!key || !actor) return;
+    setApiKeyLoading(true);
+    try {
+      await (actor as any).setClaudeApiKey(key);
+      const status: string = await (actor as any).getClaudeApiKeyStatus();
+      setApiKeyMasked(status || `${key.slice(0, 12)}...`);
+      setApiKeyInput("");
+      setApiKeySaved(true);
+      setTimeout(() => setApiKeySaved(false), 3000);
+    } catch {
+      setError("Key save karne mein problem aayi. Dobara try karo.");
+    } finally {
+      setApiKeyLoading(false);
+    }
+  }
+
+  async function handleRemoveApiKey() {
+    if (!actor) return;
+    setApiKeyLoading(true);
+    try {
+      await (actor as any).setClaudeApiKey("");
+      setApiKeyMasked("");
+      setApiKeyInput("");
+    } catch {
+      // ignore
+    } finally {
+      setApiKeyLoading(false);
     }
   }
 
@@ -264,6 +324,130 @@ export function AdminPage() {
               </Table>
             </div>
           )}
+
+          {/* ── Claude API Key Section ── */}
+          <div
+            className="mt-10 rounded-2xl border border-border bg-card p-6"
+            data-ocid="admin.apikey.panel"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Key className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-base font-bold text-foreground">
+                  Claude API Key
+                </h2>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  OmniBot chatbot ke liye key set karo — backend mein securely
+                  save hogi
+                </p>
+              </div>
+              {apiKeyMasked && (
+                <Badge className="ml-auto bg-green-500/10 text-green-600 border-green-500/20 text-xs">
+                  ✓ Key saved
+                </Badge>
+              )}
+            </div>
+
+            {apiKeyMasked ? (
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 border border-border">
+                  <Key className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                  <span className="text-sm font-mono text-muted-foreground flex-1 truncate">
+                    {apiKeyMasked}••••••••••••••••••••••••••••••••
+                  </span>
+                </div>
+                <div className="flex gap-2">
+                  <Input
+                    type="password"
+                    placeholder="Nai key dalkar replace karo..."
+                    value={apiKeyInput}
+                    onChange={(e) => setApiKeyInput(e.target.value)}
+                    className="h-10 text-sm"
+                    data-ocid="admin.apikey.input"
+                  />
+                  <Button
+                    size="sm"
+                    onClick={handleSaveApiKey}
+                    disabled={!apiKeyInput.trim() || apiKeyLoading}
+                    className="h-10 px-4 shrink-0"
+                    data-ocid="admin.apikey.save_button"
+                  >
+                    {apiKeyLoading ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      "Update"
+                    )}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={handleRemoveApiKey}
+                    disabled={apiKeyLoading}
+                    className="h-10 px-4 shrink-0 text-destructive hover:text-destructive border-destructive/30"
+                    data-ocid="admin.apikey.delete_button"
+                  >
+                    Remove
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                <p className="text-sm text-muted-foreground">
+                  Apni Claude API key yahan paste karo. Key backend canister
+                  mein securely save hogi — kisi bhi device/domain se chatbot
+                  kaam karega.
+                </p>
+                <div className="flex gap-2">
+                  <Input
+                    type="password"
+                    placeholder="sk-ant-api03-..."
+                    value={apiKeyInput}
+                    onChange={(e) => setApiKeyInput(e.target.value)}
+                    className="h-11 font-mono text-sm"
+                    data-ocid="admin.apikey.input"
+                  />
+                  <Button
+                    onClick={handleSaveApiKey}
+                    disabled={!apiKeyInput.trim() || apiKeyLoading}
+                    className="h-11 px-5 shrink-0"
+                    data-ocid="admin.apikey.save_button"
+                  >
+                    {apiKeyLoading ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      "Save Key"
+                    )}
+                  </Button>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Key milti hai:{" "}
+                  <a
+                    href="https://console.anthropic.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary underline"
+                  >
+                    console.anthropic.com
+                  </a>
+                </p>
+              </div>
+            )}
+
+            {apiKeySaved && (
+              <div
+                className="flex items-center gap-2 mt-3 p-3 rounded-xl bg-green-500/10 border border-green-500/20"
+                data-ocid="admin.apikey.success_state"
+              >
+                <CheckCircle className="w-4 h-4 text-green-600" />
+                <span className="text-sm text-green-700 dark:text-green-400 font-medium">
+                  API key successfully save ho gayi! OmniBot ab kisi bhi device
+                  par kaam karega.
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </main>
