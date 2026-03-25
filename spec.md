@@ -1,52 +1,26 @@
-# OmniSphere — SEO & Performance Optimization
+# OmniSphere
 
 ## Current State
-OmniSphere is a Hinglish tech blog built in React + TypeScript. The site has good foundational SEO (meta tags, OG, Twitter Card, structured data), but has several issues: render-blocking Google Fonts, missing WebP image format for Unsplash CDN images, inline SVG favicon, canonical pointing to wrong domain (`omnisphere.tech` vs actual `omnishpere.in`), no custom 404 page, and images missing lazy loading and proper aspect-ratio containment.
+Fully functional Hinglish tech blog with Home, Article, Category, About, Contact, Privacy, Disclaimer, Terms, Admin, Wishlist, HireUs pages. Has OmniBot chatbot, PhoneQuiz, EMI Calculator, Deal of the Day, Newsletter, Dark Mode, Language Toggle, SEO, AdSense script in head, TOC sidebar in articles, trending section on homepage.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Custom 404 NotFoundPage with helpful navigation links to Home, Phones, Laptops, Articles
-- `notFoundRoute` registered in App.tsx router
-- Preload hint for hero image (LCP optimization)
-- `dns-prefetch` for AdSense domain
+- Article sidebar: Trending posts widget, Categories widget, Recent posts widget, AdSense sidebar placeholder — visible on desktop (md:block)
+- Category page sidebar: same 3 widgets + AdSense sidebar placeholder
+- In-article AdSense placeholder — injected after 2nd paragraph in article content
+- Admin Auto Scheduler tab: topic queue input, daily schedule toggle, "Test Now" button, scheduled topics list
 
 ### Modify
-- **index.html**:
-  - Title: Add keywords 'tech blog, gadget reviews, smartphones, Hinglish' — new title: "OmniSphere — Tech Blog, Gadget Reviews & Smartphones in Hinglish | India"
-  - Meta description: Include 'tech blog, gadget reviews, smartphones, Hinglish'
-  - Meta keywords: Update to include all four target keywords prominently
-  - Canonical URL: Fix from `https://omnisphere.tech` to `https://omnishpere.in`
-  - og:url and twitter:url: Fix to `https://omnishpere.in`
-  - Structured data URLs: Fix to `omnishpere.in`
-  - Google Fonts: Make non-render-blocking using `rel="preload" as="style"` + `onload` pattern + `<noscript>` fallback
-  - AdSense: Already has `async`, add `dns-prefetch` for pagead2.googlesyndication.com
-  - Favicon: Use proper `<link rel="icon">` with SVG data URI (already present, keep)
-  - Add `<meta name="format-detection">` to suppress phone number auto-detection
-
-- **All Unsplash image URLs**: Append `&fm=webp` to convert to WebP format, reducing image size ~30%
-  - Hero image: add `&fm=webp`
-  - Fallback images: add `&fm=webp`  
-  - Article images in posts data: add `&fm=webp`
-  - Phone/laptop images: add `&fm=webp`
-
-- **PhoneCard.tsx**: Add `loading="lazy"` to phone card images, add `width` and `height` attributes for aspect ratio
-- **LaptopCard.tsx**: Add `loading="lazy"` to laptop card images
-- **HomePage.tsx**: 
-  - Hero image: add `fetchpriority="high"` for LCP, add `&fm=webp`
-  - Upcoming device images: add `loading="lazy"`
-  - H1 heading: The hero h1 text in translations should reflect keywords — update hero badge text to include 'tech blog, gadget reviews, smartphones, Hinglish'
-
-- **i18n/translations.ts**: Update hero tagline/desc to naturally include the target keywords 'tech blog, gadget reviews, smartphones, Hinglish'
+- ArticlePage: widen layout from max-w-5xl to accommodate 3-column (content + TOC + sidebar), or keep 2-col (content+sidebar) with TOC inside content; add AdSense placeholder inside article after 2nd paragraph
+- CategoryPage: add right sidebar with widgets
+- AdminPage: add tabs (Subscribers, API Key, Auto Scheduler)
 
 ### Remove
-- Nothing to remove
+- Nothing
 
 ## Implementation Plan
-1. Update `src/frontend/index.html` — fix canonical, title, meta description, non-render-blocking fonts
-2. Create `src/frontend/src/pages/NotFoundPage.tsx` — 404 page with nav links
-3. Update `src/frontend/src/App.tsx` — add notFoundRoute
-4. Add `&fm=webp` to all Unsplash image URLs across data files and components
-5. Add `loading="lazy"` to PhoneCard, LaptopCard, upcoming device images
-6. Add `fetchpriority="high"` to hero image in HomePage
-7. Ensure all image containers use proper aspect ratio (aspect-video or explicit h- classes with object-cover)
+1. Create `ArticleSidebar.tsx` component with: Trending posts (top 5), Categories list with links, Recent posts (latest 4), AdSense sidebar placeholder
+2. Update `ArticlePage.tsx`: change 2-col grid to include sidebar, inject in-article ad after 2nd `</p>` tag in content
+3. Update `CategoryPage.tsx`: add sidebar layout with `ArticleSidebar`
+4. Update `AdminPage.tsx`: add tabs UI (shadcn Tabs), move existing content into "Subscribers" and "API Key" tabs, add new "Auto Scheduler" tab with topic queue, schedule toggle, test button

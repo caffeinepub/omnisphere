@@ -12,12 +12,29 @@ import {
 import { useEffect, useState } from "react";
 import { SiFacebook, SiWhatsapp, SiX } from "react-icons/si";
 import { ArticleCard } from "../components/ArticleCard";
+import { ArticleSidebar } from "../components/ArticleSidebar";
 import { BackToTop } from "../components/BackToTop";
 import { HelpfulWidget } from "../components/HelpfulWidget";
 import { ReviewSystem } from "../components/ReviewSystem";
 import { TableOfContents } from "../components/TableOfContents";
 import { CATEGORY_COLOR_MAP } from "../data/posts";
 import { useGetAllPosts, useGetPostBySlug } from "../hooks/useQueries";
+
+const IN_ARTICLE_AD_HTML = `<div class="adsense-inarticle my-6 p-4 bg-muted/20 border border-dashed border-border rounded-xl text-center text-xs text-muted-foreground min-h-[100px] flex items-center justify-center">Advertisement (In-Article)</div>`;
+
+function injectInArticleAd(html: string): string {
+  let count = 0;
+  const marker = "</p>";
+  let idx = 0;
+  while (count < 2) {
+    const found = html.indexOf(marker, idx);
+    if (found === -1) break;
+    idx = found + marker.length;
+    count++;
+  }
+  if (count < 2) return html;
+  return html.slice(0, idx) + IN_ARTICLE_AD_HTML + html.slice(idx);
+}
 
 export function ArticlePage() {
   const { slug } = useParams({ from: "/article/$slug" });
@@ -58,10 +75,11 @@ export function ArticlePage() {
       "bg-primary text-primary-foreground")
     : "";
 
-  // Calculate "last updated" date (1 day after publish)
   const lastUpdated = post
     ? new Date(new Date(post.publishedAt).getTime() + 86400000 * 1)
     : null;
+
+  const contentWithAd = post ? injectInArticleAd(post.content) : "";
 
   if (!post) {
     return (
@@ -90,7 +108,7 @@ export function ArticlePage() {
         data-ocid="article.loading_state"
       />
 
-      <main className="container mx-auto px-4 py-8 max-w-5xl">
+      <main className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Back button */}
         <Link
           to="/"
@@ -185,17 +203,17 @@ export function ArticlePage() {
           </a>
         </div>
 
-        {/* Two-column layout on desktop: article + TOC sidebar */}
+        {/* Two-column layout: article + sidebar */}
         <div className="md:grid md:grid-cols-[1fr_280px] md:gap-10 md:items-start">
           <div>
             {/* Mobile TOC (above article) */}
             <TableOfContents content={post.content} />
 
-            {/* Article Content */}
+            {/* Article Content with in-article ad */}
             <article
               className="article-content"
               // biome-ignore lint/security/noDangerouslySetInnerHtml: article content is pre-sanitized
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: contentWithAd }}
             />
 
             {/* Tags */}
@@ -219,9 +237,12 @@ export function ArticlePage() {
             <ReviewSystem articleSlug={slug} />
           </div>
 
-          {/* Desktop TOC sidebar */}
+          {/* Desktop sidebar: TOC + ArticleSidebar */}
           <div className="hidden md:block">
             <TableOfContents content={post.content} />
+            <div className="mt-6">
+              <ArticleSidebar />
+            </div>
           </div>
         </div>
 
