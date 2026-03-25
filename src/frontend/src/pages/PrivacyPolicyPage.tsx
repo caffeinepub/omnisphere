@@ -5,7 +5,7 @@ export function PrivacyPolicyPage() {
         Privacy Policy
       </h1>
       <p className="text-sm text-muted-foreground mb-10">
-        Last updated: March 2026 &nbsp;|&nbsp; Effective for:{" "}
+        Last updated: 25 March 2026 &nbsp;|&nbsp; Effective for:{" "}
         <a
           href="https://omnisphere.in"
           className="text-primary hover:underline"
@@ -62,13 +62,14 @@ export function PrivacyPolicyPage() {
           b) Analytics Data
         </h3>
         <p className="text-muted-foreground leading-relaxed">
-          We use <strong>Google Analytics</strong> to understand how visitors
-          interact with our site. This includes data such as pages visited, time
-          spent on site, device type, browser, approximate location
-          (city/country level), and referral sources. This data is aggregated
-          and anonymised — we cannot identify you personally from it. Google
-          Analytics may set its own cookies on your device. You can opt out
-          using the{" "}
+          We use <strong>Google Analytics 4 (GA4)</strong> — property ID:
+          G-XXXXXXXXXX (replace with actual) — to understand how visitors
+          interact with our site. GA4 uses first-party cookies to track
+          anonymised usage data including pages visited, time spent on site,
+          device type, browser, approximate location (city/country level), and
+          referral sources. We have enabled <strong>IP anonymisation</strong>.
+          GA4 data is processed by Google LLC under their Data Processing
+          Amendment. You can opt out using the{" "}
           <a
             href="https://tools.google.com/dlpage/gaoptout"
             target="_blank"

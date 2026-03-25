@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Cpu, HardDrive, Monitor, Star } from "lucide-react";
+import { Cpu, HardDrive, Monitor, ShoppingCart, Star } from "lucide-react";
 import type { Laptop } from "../data/laptops";
 
 const FALLBACK_IMAGE =
@@ -151,6 +151,25 @@ export function LaptopCard({ laptop, index = 1 }: LaptopCardProps) {
             </span>
           </div>
         </div>
+
+        {!laptop.comingSoon && (
+          <div>
+            <a
+              href={`https://www.amazon.in/s?k=${encodeURIComponent(laptop.name)}&tag=sacredkashi-21`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#FF9900" }}
+              data-ocid={`laptop_card.button.${index}`}
+            >
+              <ShoppingCart size={14} />
+              Buy on Amazon
+            </a>
+            <p className="text-[10px] text-muted-foreground text-center mt-1">
+              *Links are Amazon search results. Verify product before purchase.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

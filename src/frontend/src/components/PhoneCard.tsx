@@ -1,5 +1,5 @@
 import { Checkbox } from "@/components/ui/checkbox";
-import { Heart, Star } from "lucide-react";
+import { Heart, ShoppingCart, Star } from "lucide-react";
 import { useState } from "react";
 import type { Phone } from "../data/phones";
 import { FALLBACK_IMAGE } from "../data/phones";
@@ -194,6 +194,26 @@ export function PhoneCard({
             >
               + Compare
             </label>
+          </div>
+        )}
+
+        {!phone.comingSoon && (
+          // biome-ignore lint/a11y/useKeyWithClickEvents: stopPropagation only, link handles keyboard natively
+          <div onClick={(e) => e.stopPropagation()}>
+            <a
+              href={`https://www.amazon.in/s?k=${encodeURIComponent(phone.name)}&tag=sacredkashi-21`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#FF9900" }}
+              data-ocid={`phone_card.button.${index}`}
+            >
+              <ShoppingCart size={14} />
+              Buy on Amazon
+            </a>
+            <p className="text-[10px] text-muted-foreground text-center mt-1">
+              *Links are Amazon search results. Verify product before purchase.
+            </p>
           </div>
         )}
       </div>

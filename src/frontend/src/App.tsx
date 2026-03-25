@@ -19,6 +19,7 @@ import { ArticlePage } from "./pages/ArticlePage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { ContactUsPage } from "./pages/ContactUsPage";
 import { DisclaimerPage } from "./pages/DisclaimerPage";
+import { EditorialPolicyPage } from "./pages/EditorialPolicyPage";
 import { HireUsPage } from "./pages/HireUsPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -114,6 +115,12 @@ const termsRoute = createRoute({
   component: TermsPage,
 });
 
+const editorialPolicyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/editorial-policy",
+  component: EditorialPolicyPage,
+});
+
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "*",
@@ -132,6 +139,7 @@ const routeTree = rootRoute.addChildren([
   contactRoute,
   disclaimerRoute,
   termsRoute,
+  editorialPolicyRoute,
   notFoundRoute,
 ]);
 

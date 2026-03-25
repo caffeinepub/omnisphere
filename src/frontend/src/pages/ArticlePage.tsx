@@ -206,8 +206,24 @@ export function ArticlePage() {
         {/* Two-column layout: article + sidebar */}
         <div className="md:grid md:grid-cols-[1fr_280px] md:gap-10 md:items-start">
           <div>
-            {/* Mobile TOC (above article) */}
-            <TableOfContents content={post.content} />
+            {/* Affiliate Disclosure */}
+            {post.content.includes("amazon.in") && (
+              <div className="flex items-start gap-2 p-3 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg mb-4 text-xs text-amber-800 dark:text-amber-200">
+                <span className="text-amber-600 shrink-0 mt-0.5">ℹ️</span>
+                <span>
+                  <strong>Affiliate Disclosure:</strong> This article contains
+                  Amazon affiliate links. If you click and purchase, OmniSphere
+                  earns a small commission at no extra cost to you. This helps
+                  us keep the blog free. Our reviews remain unbiased and
+                  independent.
+                </span>
+              </div>
+            )}
+
+            {/* Mobile TOC (above article, mobile only) */}
+            <div className="md:hidden">
+              <TableOfContents content={post.content} />
+            </div>
 
             {/* Article Content with in-article ad */}
             <article
@@ -229,6 +245,71 @@ export function ArticlePage() {
                 ))}
               </div>
             )}
+
+            {/* Author Box */}
+            {(() => {
+              const AUTHOR_META: Record<
+                string,
+                { role: string; bio: string; color: string }
+              > = {
+                "Rahul Sharma": {
+                  role: "Founder & Senior Tech Writer",
+                  bio: "5+ years in tech journalism. Specialises in smartphone reviews and budget phone recommendations. Tested 100+ devices.",
+                  color: "bg-primary",
+                },
+                "Priya Singh": {
+                  role: "Laptops & Productivity Editor",
+                  bio: "IIT graduate turned tech writer. Expert in laptop performance benchmarks, software ecosystems, and productivity tools.",
+                  color: "bg-blue-600",
+                },
+                "Arjun Mehta": {
+                  role: "Tips & Tricks Specialist",
+                  bio: "Android power user and rooting expert. Finds hidden features and optimises devices for peak performance.",
+                  color: "bg-green-600",
+                },
+                "Vikash Kumar": {
+                  role: "Gaming Editor",
+                  bio: "Professional gamer turned tech writer. Specialises in gaming hardware, BGMI performance, and GPU benchmarks.",
+                  color: "bg-orange-600",
+                },
+              };
+              const authorMeta = AUTHOR_META[post.author];
+              if (!authorMeta) return null;
+              const initials = post.author
+                .split(" ")
+                .map((n: string) => n[0])
+                .join("");
+              return (
+                <div
+                  className="mt-8 p-5 bg-card border border-border rounded-xl"
+                  data-ocid="article.panel"
+                >
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+                    About the Author
+                  </p>
+                  <div className="flex gap-4">
+                    <div
+                      className={`w-12 h-12 rounded-full ${authorMeta.color} text-white flex items-center justify-center font-bold text-sm shrink-0`}
+                    >
+                      {initials}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap mb-1">
+                        <span className="font-bold text-card-foreground">
+                          {post.author}
+                        </span>
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
+                          {authorMeta.role}
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {authorMeta.bio}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Helpful Widget */}
             <HelpfulWidget articleSlug={slug} />

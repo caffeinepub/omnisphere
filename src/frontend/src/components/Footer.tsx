@@ -23,8 +23,8 @@ export function Footer() {
               <span className="w-2 h-2 rounded-full bg-primary ml-0.5" />
             </div>
             <p className="text-sm text-background/60 leading-relaxed max-w-xs">
-              India ka Best Hinglish Tech Blog. Smartphones, laptops, reviews
-              aur bahut kuch — simple Hinglish mein.
+              India's Trusted Hinglish Technology Publication. Smartphones,
+              laptops, reviews aur bahut kuch — simple Hinglish mein.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 mt-4">
@@ -87,6 +87,13 @@ export function Footer() {
                 About
               </Link>
               <Link
+                to="/editorial-policy"
+                className="text-sm text-background/70 hover:text-primary transition-colors"
+                data-ocid="footer.editorial_policy.link"
+              >
+                Editorial Policy
+              </Link>
+              <Link
                 to="/contact"
                 className="text-sm text-background/70 hover:text-primary transition-colors"
                 data-ocid="footer.contact.link"
@@ -143,6 +150,14 @@ export function Footer() {
                 className="text-xs text-background/50 hover:text-primary transition-colors"
               >
                 About Us
+              </Link>
+              <span className="text-background/20 hidden sm:inline">·</span>
+              <Link
+                to="/editorial-policy"
+                data-ocid="footer.editorial_policy.link"
+                className="text-xs text-background/50 hover:text-primary transition-colors"
+              >
+                Editorial Policy
               </Link>
               <span className="text-background/20 hidden sm:inline">·</span>
               <Link

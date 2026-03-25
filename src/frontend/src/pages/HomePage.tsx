@@ -251,6 +251,33 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Trust Stats Bar */}
+      <div className="border-b border-border bg-muted/30">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold text-lg">24+</span>
+              <span>In-depth Articles</span>
+            </div>
+            <div className="hidden sm:block w-px h-4 bg-border" />
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold text-lg">30+</span>
+              <span>Phones Reviewed</span>
+            </div>
+            <div className="hidden sm:block w-px h-4 bg-border" />
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold text-lg">50K+</span>
+              <span>Monthly Readers</span>
+            </div>
+            <div className="hidden sm:block w-px h-4 bg-border" />
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold text-lg">Est.</span>
+              <span>2021 — India's Hinglish Tech Blog</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Featured Posts */}
       <section className="container mx-auto px-4 py-14">
         <div className="flex items-center justify-between mb-8">
