@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import {
   Outlet,
   RouterProvider,
-  createHashHistory,
+  createBrowserHistory,
   createRootRoute,
   createRoute,
   createRouter,
@@ -25,11 +25,6 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { TermsPage } from "./pages/TermsPage";
 import { WishlistPage } from "./pages/WishlistPage";
-
-// Fix: If no hash is present (e.g. opening draft link directly), default to #/
-if (!window.location.hash || window.location.hash === "#") {
-  window.location.hash = "#/";
-}
 
 // Root Layout
 function RootLayout() {
@@ -140,11 +135,11 @@ const routeTree = rootRoute.addChildren([
   notFoundRoute,
 ]);
 
-const hashHistory = createHashHistory();
+const browserHistory = createBrowserHistory();
 
 const router = createRouter({
   routeTree,
-  history: hashHistory,
+  history: browserHistory,
 });
 
 declare module "@tanstack/react-router" {

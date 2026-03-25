@@ -1,4 +1,3 @@
-import { useActor } from "@/hooks/useActor";
 import { useEffect, useRef, useState } from "react";
 
 const SYSTEM_PROMPT = `Tu OmniSphere ka AI assistant hai — ek Hinglish tech blog jo phones aur gadgets ke baare mein hai (omnishpere.in).
@@ -51,9 +50,6 @@ const suggestedQuestions = [
 ];
 
 export default function OmniSphereChatbot() {
-  const { actor, isFetching } = useActor();
-  const [apiKey, setApiKey] = useState("");
-
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -68,19 +64,6 @@ export default function OmniSphereChatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Load API key from backend canister on mount
-  useEffect(() => {
-    if (!actor || isFetching) return;
-    (async () => {
-      try {
-        const key: string = await (actor as any).getClaudeApiKey();
-        if (key) setApiKey(key);
-      } catch {
-        // backend method may not exist yet
-      }
-    })();
-  }, [actor, isFetching]);
-
   // biome-ignore lint/correctness/useExhaustiveDependencies: scroll on message/loading change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -94,38 +77,28 @@ export default function OmniSphereChatbot() {
     const userMsg = text || input.trim();
     if (!userMsg || loading) return;
 
-    if (!apiKey) {
-      setMessages((prev) => [
-        ...prev,
-        { role: "user", content: userMsg },
-        {
-          role: "assistant",
-          content:
-            "⚙️ API key set nahi hai. Admin page par jaake Claude API key save karo, phir chatbot kaam karega. Admin: /admin",
-        },
-      ]);
-      setInput("");
-      setShowSuggestions(false);
-      return;
-    }
-
     setInput("");
     setShowSuggestions(false);
     const newMessages = [...messages, { role: "user", content: userMsg }];
     setMessages(newMessages);
     setLoading(true);
 
+    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY as string | undefined;
+
     try {
+      if (!apiKey) {
+        throw new Error("no_key");
+      }
       const response = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "x-api-key": apiKey,
           "anthropic-version": "2023-06-01",
-          "anthropic-dangerous-request-allowlist": "allow-all",
+          "anthropic-dangerous-allow-browser": "true",
         },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
+          model: "claude-haiku-4-5-20251001",
           max_tokens: 1000,
           system: SYSTEM_PROMPT,
           messages: newMessages.map((m) => ({
@@ -143,7 +116,8 @@ export default function OmniSphereChatbot() {
         ...newMessages,
         {
           role: "assistant",
-          content: "Network error aa gaya bhai! Thodi der baad try karo. 🙏",
+          content:
+            "Chatbot temporarily unavailable. Thodi der baad try karo. 🙏",
         },
       ]);
     } finally {
