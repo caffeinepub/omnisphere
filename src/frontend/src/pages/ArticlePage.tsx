@@ -220,9 +220,9 @@ export function ArticlePage() {
               </div>
             )}
 
-            {/* Mobile TOC (above article, mobile only) */}
+            {/* Mobile TOC — only accordion, no sticky aside */}
             <div className="md:hidden">
-              <TableOfContents content={post.content} />
+              <TableOfContents content={post.content} variant="mobile" />
             </div>
 
             {/* Article Content with in-article ad */}
@@ -318,9 +318,9 @@ export function ArticlePage() {
             <ReviewSystem articleSlug={slug} />
           </div>
 
-          {/* Desktop sidebar: TOC + ArticleSidebar */}
+          {/* Desktop sidebar: TOC (sticky) + ArticleSidebar */}
           <div className="hidden md:block">
-            <TableOfContents content={post.content} />
+            <TableOfContents content={post.content} variant="desktop" />
             <div className="mt-6">
               <ArticleSidebar />
             </div>

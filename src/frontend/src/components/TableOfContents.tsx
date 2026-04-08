@@ -8,6 +8,7 @@ interface TocItem {
 
 interface Props {
   content: string;
+  variant?: "mobile" | "desktop" | "both";
 }
 
 function slugify(text: string): string {
@@ -37,7 +38,7 @@ function parseHeadings(html: string): TocItem[] {
   return items;
 }
 
-export function TableOfContents({ content }: Props) {
+export function TableOfContents({ content, variant = "both" }: Props) {
   const [activeSlug, setActiveSlug] = useState<string>("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -126,45 +127,49 @@ export function TableOfContents({ content }: Props) {
 
   return (
     <>
-      {/* Mobile: collapsible accordion above article */}
-      <div
-        className="md:hidden mb-6 rounded-xl border border-border bg-card overflow-hidden"
-        data-ocid="toc.panel"
-      >
-        <button
-          type="button"
-          onClick={() => setMobileOpen((p) => !p)}
-          className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground"
-          data-ocid="toc.toggle"
+      {/* Mobile: collapsible accordion — only shown when variant is 'mobile' or 'both' */}
+      {(variant === "mobile" || variant === "both") && (
+        <div
+          className="mb-6 rounded-xl border border-border bg-card overflow-hidden"
+          data-ocid="toc.panel"
         >
-          <span>Table of Contents</span>
-          <span
-            className={`transition-transform duration-200 ${
-              mobileOpen ? "rotate-180" : ""
-            }`}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((p) => !p)}
+            className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground"
+            data-ocid="toc.toggle"
           >
-            ▼
-          </span>
-        </button>
-        {mobileOpen && (
-          <div className="px-2 pb-3 border-t border-border">
+            <span>Table of Contents</span>
+            <span
+              className={`transition-transform duration-200 ${
+                mobileOpen ? "rotate-180" : ""
+              }`}
+            >
+              ▼
+            </span>
+          </button>
+          {mobileOpen && (
+            <div className="px-2 pb-3 border-t border-border">
+              <TocList />
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Desktop: sticky sidebar — only shown when variant is 'desktop' or 'both' */}
+      {(variant === "desktop" || variant === "both") && (
+        <aside
+          className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto"
+          data-ocid="toc.section"
+        >
+          <div className="rounded-xl border border-border bg-card p-4">
+            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 px-2">
+              Contents
+            </p>
             <TocList />
           </div>
-        )}
-      </div>
-
-      {/* Desktop: sticky sidebar */}
-      <aside
-        className="hidden md:block sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto"
-        data-ocid="toc.section"
-      >
-        <div className="rounded-xl border border-border bg-card p-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 px-2">
-            Contents
-          </p>
-          <TocList />
-        </div>
-      </aside>
+        </aside>
+      )}
     </>
   );
 }
